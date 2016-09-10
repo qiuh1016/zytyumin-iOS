@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0685A574FD1CCCD15211A1AA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B369D574C3B43380993CC6 /* Pods.framework */; };
+		B93553841D82A9DA00B33174 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553831D82A9DA00B33174 /* MapViewController.swift */; };
+		B93553861D82AA1300B33174 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553851D82AA1300B33174 /* UserViewController.swift */; };
+		B93553881D82DDB700B33174 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553871D82DDB700B33174 /* WebViewController.swift */; };
+		B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553891D82EAFC00B33174 /* ServiceViewController.swift */; };
+		B943B57D1D82A5500083AB5C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57C1D82A5500083AB5C /* Functions.swift */; };
+		B943B5801D82A5940083AB5C /* values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57F1D82A5940083AB5C /* values.swift */; };
 		B99784831D82992D007FF20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784821D82992D007FF20E /* AppDelegate.swift */; };
-		B99784851D82992D007FF20E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784841D82992D007FF20E /* ViewController.swift */; };
+		B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784841D82992D007FF20E /* HomepageViewController.swift */; };
 		B99784881D82992D007FF20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99784861D82992D007FF20E /* Main.storyboard */; };
 		B997848B1D82992E007FF20E /* zytyumin_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B99784891D82992E007FF20E /* zytyumin_iOS.xcdatamodeld */; };
 		B997848D1D82992E007FF20E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B997848C1D82992E007FF20E /* Assets.xcassets */; };
@@ -16,9 +23,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F58680F4900C270D2D271CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		24B369D574C3B43380993CC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		604B702F45E618A5660A12FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B93553831D82A9DA00B33174 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B93553851D82AA1300B33174 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		B93553871D82DDB700B33174 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		B93553891D82EAFC00B33174 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		B943B57C1D82A5500083AB5C /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		B943B57F1D82A5940083AB5C /* values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = values.swift; sourceTree = "<group>"; };
 		B997847F1D82992D007FF20E /* zytyumin-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zytyumin-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99784821D82992D007FF20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B99784841D82992D007FF20E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B99784841D82992D007FF20E /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		B99784871D82992D007FF20E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B997848A1D82992E007FF20E /* zytyumin_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = zytyumin_iOS.xcdatamodel; sourceTree = "<group>"; };
 		B997848C1D82992E007FF20E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0685A574FD1CCCD15211A1AA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0FE5D84160310E756BE0A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F58680F4900C270D2D271CC /* Pods.debug.xcconfig */,
+				604B702F45E618A5660A12FB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B943B57E1D82A5680083AB5C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B943B57C1D82A5500083AB5C /* Functions.swift */,
+				B943B57F1D82A5940083AB5C /* values.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		B99784761D82992D007FF20E = {
 			isa = PBXGroup;
 			children = (
 				B99784811D82992D007FF20E /* zytyumin-iOS */,
 				B99784801D82992D007FF20E /* Products */,
+				4E0FE5D84160310E756BE0A8 /* Pods */,
+				C81963A87970D49864C99931 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				B99784821D82992D007FF20E /* AppDelegate.swift */,
-				B99784841D82992D007FF20E /* ViewController.swift */,
+				B99784841D82992D007FF20E /* HomepageViewController.swift */,
+				B93553831D82A9DA00B33174 /* MapViewController.swift */,
+				B93553851D82AA1300B33174 /* UserViewController.swift */,
+				B93553871D82DDB700B33174 /* WebViewController.swift */,
+				B93553891D82EAFC00B33174 /* ServiceViewController.swift */,
+				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
 				B997848C1D82992E007FF20E /* Assets.xcassets */,
 				B997848E1D82992E007FF20E /* LaunchScreen.storyboard */,
@@ -67,6 +109,14 @@
 			path = "zytyumin-iOS";
 			sourceTree = "<group>";
 		};
+		C81963A87970D49864C99931 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24B369D574C3B43380993CC6 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +124,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B99784941D82992E007FF20E /* Build configuration list for PBXNativeTarget "zytyumin-iOS" */;
 			buildPhases = (
+				9D21C2883CBCC0DA0F511D79 /* Check Pods Manifest.lock */,
 				B997847B1D82992D007FF20E /* Sources */,
 				B997847C1D82992D007FF20E /* Frameworks */,
 				B997847D1D82992D007FF20E /* Resources */,
+				919DF82E3FB287A095A19FB4 /* Embed Pods Frameworks */,
+				EC8FBEB154F57DBBDEBFA04B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,6 +152,7 @@
 				TargetAttributes = {
 					B997847E1D82992D007FF20E = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GN7256EV7F;
 					};
 				};
 			};
@@ -133,14 +187,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		919DF82E3FB287A095A19FB4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D21C2883CBCC0DA0F511D79 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC8FBEB154F57DBBDEBFA04B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B997847B1D82992D007FF20E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B99784851D82992D007FF20E /* ViewController.swift in Sources */,
+				B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */,
+				B93553861D82AA1300B33174 /* UserViewController.swift in Sources */,
+				B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */,
+				B93553841D82A9DA00B33174 /* MapViewController.swift in Sources */,
 				B99784831D82992D007FF20E /* AppDelegate.swift in Sources */,
 				B997848B1D82992E007FF20E /* zytyumin_iOS.xcdatamodeld in Sources */,
+				B943B5801D82A5940083AB5C /* values.swift in Sources */,
+				B943B57D1D82A5500083AB5C /* Functions.swift in Sources */,
+				B93553881D82DDB700B33174 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,23 +359,31 @@
 		};
 		B99784951D82992E007FF20E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F58680F4900C270D2D271CC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		B99784961D82992E007FF20E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 604B702F45E618A5660A12FB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -290,6 +406,7 @@
 				B99784961D82992E007FF20E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
