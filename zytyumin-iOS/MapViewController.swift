@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
         self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     

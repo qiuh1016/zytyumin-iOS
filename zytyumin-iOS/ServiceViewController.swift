@@ -21,7 +21,6 @@ class ServiceViewController: UIViewController {
         ["法律法规"],
         ["渔船检验业务流程", "渔船登记业务流程", "捕捞许可业务流程"],
         ["审图意见书", "报检单", "整改意见书", "检验记录"]
-        
     ]
     
     var taps = [UITapGestureRecognizer]()
@@ -54,15 +53,15 @@ class ServiceViewController: UIViewController {
         let lineHeight = 55
         let imageWidth = 21
         let space = 15
-        let cornerRadii = CGSizeMake(10, 10)
+        let cornerRadii = CGSizeMake(9, 9)
         
         view.backgroundColor = UIColor.colorFromRGB(0xEEEEEE, alpha: 1)
         
         //contentView
         let viewWidth = self.view.bounds.width - 20
-        let contentView = UIView(frame: CGRectMake(10, 84, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
+        let contentView = UIView(frame: CGRectMake(10, 20, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
         contentView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
+        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: CGSize(width: 10, height: 10))
         view.addSubview(contentView)
         
         if lineNumber == 0 {
@@ -110,48 +109,28 @@ class ServiceViewController: UIViewController {
 
     
     func tapped1(sender: UITapGestureRecognizer) {
-        print("tapped1")
+        print("\(lineTexts[index][0])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     func tapped2(sender: UITapGestureRecognizer) {
-        print("tapped2")
+        print("\(lineTexts[index][1])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     func tapped3(sender: UITapGestureRecognizer) {
-        print("tapped3")
+        print("\(lineTexts[index][2])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     func tapped4(sender: UITapGestureRecognizer) {
-        print("tapped4")
+        print("\(lineTexts[index][3])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     func tapped5(sender: UITapGestureRecognizer) {
-        print("tapped5")
+        print("\(lineTexts[index][4])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     

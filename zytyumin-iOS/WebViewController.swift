@@ -16,7 +16,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationItem.title = "新闻"
+        title = "新闻"
         initWKWebView()
         
     }

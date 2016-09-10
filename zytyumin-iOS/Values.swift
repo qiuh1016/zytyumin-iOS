@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let textFontName = "Helvetica Neue"
+
 extension UIColor {
     class func mainColor() -> UIColor {
         return UIColor.colorFromRGB(0x157CFB, alpha: 1)

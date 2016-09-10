@@ -12,6 +12,7 @@
 		B93553861D82AA1300B33174 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553851D82AA1300B33174 /* UserViewController.swift */; };
 		B93553881D82DDB700B33174 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553871D82DDB700B33174 /* WebViewController.swift */; };
 		B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553891D82EAFC00B33174 /* ServiceViewController.swift */; };
+		B93553911D84361800B33174 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553901D84361800B33174 /* GridView.swift */; };
 		B943B57D1D82A5500083AB5C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57C1D82A5500083AB5C /* Functions.swift */; };
 		B943B5801D82A5940083AB5C /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57F1D82A5940083AB5C /* Values.swift */; };
 		B99784831D82992D007FF20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784821D82992D007FF20E /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		B93553871D82DDB700B33174 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B93553891D82EAFC00B33174 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		B935538B1D83F5F800B33174 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B93553901D84361800B33174 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		B943B57C1D82A5500083AB5C /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		B943B57F1D82A5940083AB5C /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		B997847F1D82992D007FF20E /* zytyumin-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zytyumin-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			children = (
 				B943B57C1D82A5500083AB5C /* Functions.swift */,
 				B943B57F1D82A5940083AB5C /* Values.swift */,
+				B93553901D84361800B33174 /* GridView.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				B997848B1D82992E007FF20E /* zytyumin_iOS.xcdatamodeld in Sources */,
 				B943B5801D82A5940083AB5C /* Values.swift in Sources */,
 				B943B57D1D82A5500083AB5C /* Functions.swift in Sources */,
+				B93553911D84361800B33174 /* GridView.swift in Sources */,
 				B93553881D82DDB700B33174 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

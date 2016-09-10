@@ -43,6 +43,7 @@ class UserViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
         self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func initView() {
@@ -51,15 +52,15 @@ class UserViewController: UIViewController {
         let lineHeight = 55
         let imageWidth = 21
         let space = 15
-        let cornerRadii = CGSizeMake(10, 10)
+        let cornerRadii = CGSizeMake(9, 9)
         
         view.backgroundColor = UIColor.colorFromRGB(0xEEEEEE, alpha: 1)
         
         //contentView
         let viewWidth = self.view.bounds.width - 20
-        let contentView = UIView(frame: CGRectMake(10, 84, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
+        let contentView = UIView(frame: CGRectMake(10, 20, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
         contentView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
+        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: CGSize(width: 10, height: 10))
         view.addSubview(contentView)
         
         //lineView
@@ -110,30 +111,17 @@ class UserViewController: UIViewController {
     }
     
     func tapped1(sender: UITapGestureRecognizer) {
-        print("tapped1")
-        
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
+        print("\(lineTexts[0])")
     }
     
     func tapped2(sender: UITapGestureRecognizer) {
-        print("tapped2")
-        
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
+        print("\(lineTexts[1])")
+    
     }
     
     func tapped3(sender: UITapGestureRecognizer) {
-        print("tapped3")
+        print("\(lineTexts[2])")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        vc.urlString = "https://www.baidu.com"
-        self.navigationController?.showViewController(vc, sender: nil)
     }
     
     func loginButtonTapped(sender: UIButton) {
