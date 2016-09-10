@@ -11,11 +11,9 @@ import UIKit
 
 class UserViewController: UIViewController {
     
-    var lineNumbers = [3, 5, 4, 1, 3, 4]
     var lineTexts = ["修改密码", "我的待办", "版本信息"]
     
     var taps = [UITapGestureRecognizer]()
-    
     var selectors = [Selector]()
     
     var loginButton: UIButton!
@@ -23,16 +21,10 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     
+        initNavigationBar()
         initTap()
         initView()
-        
-        // navigation bar
-        self.navigationController?.navigationBar.barTintColor = mainColor
-        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
     }
     
     func initTap() {
@@ -45,6 +37,12 @@ class UserViewController: UIViewController {
             taps.append(tap)
         }
         
+    }
+    
+    func initNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
+        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     func initView() {
@@ -60,14 +58,14 @@ class UserViewController: UIViewController {
         //contentView
         let viewWidth = self.view.bounds.width - 20
         let contentView = UIView(frame: CGRectMake(10, 84, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
-        contentView.backgroundColor = UIColor.colorFromRGB(0x333333, alpha: 0.2)
+        contentView.backgroundColor = UIColor.spaceLineColor()
         makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
         view.addSubview(contentView)
         
         //lineView
         for i in 0 ... lineNumber - 1{
             let lineView = UIView(frame: CGRectMake(1, CGFloat(lineHeight * i + i + 1), viewWidth - 2, CGFloat(lineHeight)))
-            lineView.backgroundColor = (i % 2 == 0) ? mainLightColor : UIColor.whiteColor()
+            lineView.backgroundColor = (i % 2 == 0) ? UIColor.mainLightColor() : UIColor.whiteColor()
             lineView.userInteractionEnabled = true
             lineView.addGestureRecognizer(taps[i])
             
@@ -84,7 +82,7 @@ class UserViewController: UIViewController {
             //text
             let label = UILabel(frame: CGRectMake(CGFloat(space), 0, lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), CGFloat(lineHeight)))
             label.text = lineTexts[i]
-            label.textColor = textColor
+            label.textColor = UIColor.textColor()
             label.font = UIFont(name: "Helvetica Neue", size: 16)
             label.backgroundColor = UIColor.clearColor()
             
@@ -105,12 +103,11 @@ class UserViewController: UIViewController {
         loginButton.setTitle("LOG IN", forState: .Normal)
         loginButton.layer.cornerRadius = 10
         loginButton.layer.masksToBounds = true
-        loginButton.backgroundColor = mainColor
+        loginButton.backgroundColor = UIColor.mainColor()
         loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         loginButton.addTarget(self, action: #selector(UserViewController.loginButtonTapped(_:)), forControlEvents: .TouchUpInside)
         view.addSubview(loginButton)
     }
-    
     
     func tapped1(sender: UITapGestureRecognizer) {
         print("tapped1")
@@ -143,7 +140,7 @@ class UserViewController: UIViewController {
         print("login")
         hasLogin = !hasLogin
         loginButton.setTitle(hasLogin ? "LOG OUT" : "LOG IN", forState: .Normal)
-        loginButton.backgroundColor = hasLogin ? logoutTextColor : mainColor
+        loginButton.backgroundColor = hasLogin ? UIColor.logoutTextColor() : UIColor.mainColor()
         
         
     }

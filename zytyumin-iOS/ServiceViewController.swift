@@ -25,7 +25,6 @@ class ServiceViewController: UIViewController {
     ]
     
     var taps = [UITapGestureRecognizer]()
-    
     var selectors = [Selector]()
     
     override func viewDidLoad() {
@@ -62,7 +61,7 @@ class ServiceViewController: UIViewController {
         //contentView
         let viewWidth = self.view.bounds.width - 20
         let contentView = UIView(frame: CGRectMake(10, 84, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
-        contentView.backgroundColor = UIColor.colorFromRGB(0x333333, alpha: 0.2)
+        contentView.backgroundColor = UIColor.spaceLineColor()
         makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
         view.addSubview(contentView)
         
@@ -74,7 +73,7 @@ class ServiceViewController: UIViewController {
         //lineView
         for i in 0 ... lineNumber - 1{
             let lineView = UIView(frame: CGRectMake(1, CGFloat(lineHeight * i + i + 1), viewWidth - 2, CGFloat(lineHeight)))
-            lineView.backgroundColor = (i % 2 == 0) ? mainLightColor : UIColor.whiteColor()
+            lineView.backgroundColor = (i % 2 == 0) ? UIColor.mainLightColor() : UIColor.whiteColor()
             lineView.userInteractionEnabled = true
             lineView.addGestureRecognizer(taps[i])
             
@@ -91,7 +90,7 @@ class ServiceViewController: UIViewController {
             //text
             let label = UILabel(frame: CGRectMake(CGFloat(space), 0, lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), CGFloat(lineHeight)))
             label.text = lineTexts[index][i]
-            label.textColor = textColor
+            label.textColor = UIColor.textColor()
             label.font = UIFont(name: "Helvetica Neue", size: 16)
             label.backgroundColor = UIColor.clearColor()
             

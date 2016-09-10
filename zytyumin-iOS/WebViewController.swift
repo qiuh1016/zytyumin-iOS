@@ -7,27 +7,27 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
-
-    @IBOutlet weak var webView: UIWebView!
     
+    var wkWebView :WKWebView!
     var urlString = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationItem.title = "新闻"
+        initWKWebView()
         
-        
-//        self.navigationController?.navigationBar.barTintColor = mainColor
-//        self.navigationController?.navigationBar.titleTextAttributes =
-//            [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!]
-//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        let url = NSURL(string: urlString) //"https://view.inews.qq.com/a/NEW2016090904893404"
-        let urlRequest = NSURLRequest(URL: url!)
-        webView.loadRequest(urlRequest)
     }
-
+    
+    func initWKWebView() {
+        wkWebView = WKWebView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        self.view.addSubview(wkWebView)
+        
+        let url = NSURL(string: urlString)
+        let urlRequest = NSURLRequest(URL: url!)
+        wkWebView.loadRequest(urlRequest)
+    }
     
 }

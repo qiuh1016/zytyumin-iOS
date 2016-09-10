@@ -28,6 +28,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     ]
     
     let imageWebUrls = [
+        "https://view.inews.qq.com/a/NEW201609100159180T",
         "http://www.cnfm.gov.cn/tpxwsyyzw/201607/t20160729_5222942.htm",
         "http://www.cnfm.gov.cn/tpxwsyyzw/201606/t20160613_5167471.htm",
         "http://www.cnfm.gov.cn/tpxwsyyzw/201606/t20160607_5163334.htm",
@@ -40,7 +41,6 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     @IBOutlet weak var buttonView_1: UIView!
     @IBOutlet weak var buttonView_2: UIView!
     @IBOutlet weak var buttonView_3: UIView!
-    
     @IBOutlet weak var buttonView_4: UIView!
     @IBOutlet weak var buttonView_5: UIView!
     @IBOutlet weak var cycleScrollView: SDCycleScrollView!
@@ -48,7 +48,6 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         initNavigationBar()
         initSDCycleScrollView()
@@ -64,26 +63,24 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     }
     
     func initNavigationBar() {
-        // navigation bar
-        self.navigationController?.navigationBar.barTintColor = mainColor
+        self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()] //, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     func initSDCycleScrollView() {
-        // SDCycleScrollView
         cycleScrollView.delegate = self
         cycleScrollView.placeholderImage = UIImage(named: "SDCycleViewDefaultImage")
         cycleScrollView.imageURLStringsGroup = imageUrls
         cycleScrollView.titlesGroup = imageTitles
         cycleScrollView.autoScrollTimeInterval = 8
         cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight
-
     }
     
     func roundCornerButtonView() {
         let cornerRadii = CGSizeMake(10, 10)
+        buttonView.backgroundColor = UIColor.spaceLineColor()
         makeRoundedCorner(buttonView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
         makeRoundedCorner(buttonView_0, corners: [UIRectCorner.TopLeft], cornerRadii: cornerRadii)
         makeRoundedCorner(buttonView_2, corners: [UIRectCorner.TopRight], cornerRadii: cornerRadii)
@@ -92,8 +89,10 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     }
     
     func cycleScrollView(cycleScrollView: SDCycleScrollView!, didSelectItemAtIndex index: Int) {
-        performSegueWithIdentifier("webViewSegue", sender: index)
-        
+        let vc = WebViewController()
+        vc.urlString = imageWebUrls[index]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.showViewController(vc, sender: nil)
     }
 
     @IBAction func button_1_tapped(sender: AnyObject) {
@@ -121,17 +120,10 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if (segue.identifier == "webViewSegue") {
-            let index = sender as! Int
-            let vc = segue.destinationViewController as! WebViewController
-            vc.urlString = imageWebUrls[index]
-        } else if (segue.identifier == "serviceSegue") {
+        if (segue.identifier == "serviceSegue") {
             let vc = segue.destinationViewController as! ServiceViewController
             vc.index = sender as! Int
         }
-        
-        
     }
 }
 

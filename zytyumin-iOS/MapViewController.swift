@@ -13,19 +13,13 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-
-        // navigation bar
-        self.navigationController?.navigationBar.barTintColor = mainColor
-        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()] 
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
+        initNavigationBar()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func initNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
+        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     

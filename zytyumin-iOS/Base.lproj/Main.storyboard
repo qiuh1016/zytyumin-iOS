@@ -35,9 +35,6 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_service" translatesAutoresizingMaskIntoConstraints="NO" id="g6b-9c-rL3">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="WLN-cr-AbV" appends="YES" id="AQt-dK-tVH"/>
-                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="业务办理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-2a-k6z">
                                                 <rect key="frame" x="8" y="89" width="97" height="16"/>
@@ -47,6 +44,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="g6b-9c-rL3" firstAttribute="leading" secondItem="zCP-nK-kHR" secondAttribute="leading" constant="8" id="790-j4-twp"/>
                                             <constraint firstItem="zrp-2a-k6z" firstAttribute="leading" secondItem="zCP-nK-kHR" secondAttribute="leading" constant="8" id="9nl-Yk-rM9"/>
@@ -57,6 +55,9 @@
                                             <constraint firstAttribute="bottom" secondItem="zrp-2a-k6z" secondAttribute="bottom" constant="8" id="t0M-WZ-run"/>
                                             <constraint firstAttribute="trailing" secondItem="zrp-2a-k6z" secondAttribute="trailing" constant="8" id="v4S-ht-LmK"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GyY-aL-y5A" appends="YES" id="HMN-Hp-oq3"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-yd-6Ac" userLabel="buttonView_1">
                                         <rect key="frame" x="115" y="1" width="113" height="113"/>
@@ -64,9 +65,6 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_record" translatesAutoresizingMaskIntoConstraints="NO" id="dua-nH-vSl">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="bzg-pJ-5Cs" appends="YES" id="Xwz-4I-i3I"/>
-                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="记录查询" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beg-MP-4sl">
                                                 <rect key="frame" x="8" y="89" width="97" height="16"/>
@@ -76,6 +74,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="dua-nH-vSl" firstAttribute="trailing" secondItem="bY6-yd-6Ac" secondAttribute="trailingMargin" id="TUC-2C-Orp"/>
                                             <constraint firstItem="beg-MP-4sl" firstAttribute="top" secondItem="dua-nH-vSl" secondAttribute="bottom" constant="8" symbolic="YES" id="U2Y-hP-y0J"/>
@@ -86,6 +85,9 @@
                                             <constraint firstItem="dua-nH-vSl" firstAttribute="top" secondItem="bY6-yd-6Ac" secondAttribute="topMargin" id="h1f-br-y9Z"/>
                                             <constraint firstItem="dua-nH-vSl" firstAttribute="trailing" secondItem="beg-MP-4sl" secondAttribute="trailing" id="kA2-tH-YxQ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9br-t5-pzx" appends="YES" id="v0L-dK-Emt"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-n8-qAU" userLabel="buttonView_2">
                                         <rect key="frame" x="229" y="1" width="113" height="113"/>
@@ -93,9 +95,6 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_visa" translatesAutoresizingMaskIntoConstraints="NO" id="dGU-ob-CN7">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="So9-gi-Y1N" appends="YES" id="38Y-l0-7rw"/>
-                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子签证" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJb-5g-cBe">
                                                 <rect key="frame" x="8" y="89" width="97" height="16"/>
@@ -105,6 +104,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="HJb-5g-cBe" firstAttribute="top" secondItem="dGU-ob-CN7" secondAttribute="bottom" constant="8" symbolic="YES" id="1Nq-xR-hXI"/>
                                             <constraint firstAttribute="width" secondItem="A9c-n8-qAU" secondAttribute="height" multiplier="1:1" id="2XY-3H-sTf"/>
@@ -115,6 +115,9 @@
                                             <constraint firstItem="dGU-ob-CN7" firstAttribute="trailing" secondItem="A9c-n8-qAU" secondAttribute="trailingMargin" id="dOP-xL-oDQ"/>
                                             <constraint firstItem="dGU-ob-CN7" firstAttribute="leading" secondItem="HJb-5g-cBe" secondAttribute="leading" id="vkO-5K-qIL"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9Cr-ie-e3D" appends="YES" id="xXJ-fO-CFD"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nca-n6-2A8" userLabel="buttonView_3">
                                         <rect key="frame" x="1" y="115" width="113" height="113"/>
@@ -122,9 +125,6 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_low" translatesAutoresizingMaskIntoConstraints="NO" id="PgD-QL-1aW">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="jcN-Sd-ok2" appends="YES" id="dqg-5h-WKc"/>
-                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="法律法规" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H05-5c-0gh">
                                                 <rect key="frame" x="8" y="89" width="97" height="16"/>
@@ -134,6 +134,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="PgD-QL-1aW" firstAttribute="leading" secondItem="Nca-n6-2A8" secondAttribute="leadingMargin" id="8We-4X-pi4"/>
                                             <constraint firstItem="PgD-QL-1aW" firstAttribute="trailing" secondItem="Nca-n6-2A8" secondAttribute="trailingMargin" id="B1m-dV-Uu2"/>
@@ -144,6 +145,9 @@
                                             <constraint firstItem="PgD-QL-1aW" firstAttribute="trailing" secondItem="H05-5c-0gh" secondAttribute="trailing" id="lXq-ly-GTF"/>
                                             <constraint firstItem="PgD-QL-1aW" firstAttribute="top" secondItem="Nca-n6-2A8" secondAttribute="topMargin" id="oER-sm-Xmd"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="y5o-sH-ezO" appends="YES" id="Yki-Nw-avb"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSe-JB-mEh" userLabel="buttonView_4">
                                         <rect key="frame" x="115" y="115" width="113" height="113"/>
@@ -157,12 +161,10 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_process" translatesAutoresizingMaskIntoConstraints="NO" id="TnK-ev-nap">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="6lO-rq-h3Z" appends="YES" id="Wiu-bc-vHQ"/>
-                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="TnK-ev-nap" firstAttribute="leading" secondItem="oSe-JB-mEh" secondAttribute="leadingMargin" id="bJG-yP-0xZ"/>
                                             <constraint firstItem="TnK-ev-nap" firstAttribute="top" secondItem="oSe-JB-mEh" secondAttribute="topMargin" id="bsZ-hb-823"/>
@@ -173,6 +175,9 @@
                                             <constraint firstAttribute="width" secondItem="oSe-JB-mEh" secondAttribute="height" multiplier="1:1" id="tBP-Uo-BDP"/>
                                             <constraint firstItem="TnK-ev-nap" firstAttribute="trailing" secondItem="YHk-ZV-35M" secondAttribute="trailing" id="u2K-HE-9bD"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BbT-5R-Om8" appends="YES" id="7jQ-d9-0wc"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE9-yL-bRR" userLabel="buttonView_5">
                                         <rect key="frame" x="229" y="115" width="113" height="113"/>
@@ -180,9 +185,6 @@
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="homepage_todo" translatesAutoresizingMaskIntoConstraints="NO" id="ebI-mw-mjN">
                                                 <rect key="frame" x="8" y="8" width="97" height="73"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="MPs-FY-yWH" appends="YES" id="zd1-jk-XTm"/>
-                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待办任务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NJ-Li-KKz">
                                                 <rect key="frame" x="8" y="89" width="97" height="16"/>
@@ -192,6 +194,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="ebI-mw-mjN" firstAttribute="trailing" secondItem="4NJ-Li-KKz" secondAttribute="trailing" id="3mV-1Q-83j"/>
                                             <constraint firstItem="ebI-mw-mjN" firstAttribute="top" secondItem="UE9-yL-bRR" secondAttribute="topMargin" id="Ror-46-VcX"/>
@@ -202,6 +205,9 @@
                                             <constraint firstItem="4NJ-Li-KKz" firstAttribute="top" secondItem="ebI-mw-mjN" secondAttribute="bottom" constant="8" symbolic="YES" id="xMv-kS-bbt"/>
                                             <constraint firstItem="ebI-mw-mjN" firstAttribute="leading" secondItem="4NJ-Li-KKz" secondAttribute="leading" id="xY0-Md-dIO"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Hn7-cu-9Db" appends="YES" id="dX4-xk-2jE"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -258,89 +264,41 @@
                         <outlet property="buttonView_5" destination="UE9-yL-bRR" id="Jhk-O5-yXy"/>
                         <outlet property="cycleScrollView" destination="FJH-rB-ze0" id="0fU-sr-GOm"/>
                         <segue destination="G68-iN-8GK" kind="show" identifier="serviceSegue" id="5Ae-I4-oLN"/>
-                        <segue destination="kXX-Oq-c5v" kind="show" identifier="webViewSegue" id="3hG-bs-a4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="WLN-cr-AbV">
+                <tapGestureRecognizer id="GyY-aL-y5A">
                     <connections>
-                        <action selector="button_1_tapped:" destination="BYZ-38-t0r" id="dTK-l9-hJI"/>
+                        <action selector="button_1_tapped:" destination="BYZ-38-t0r" id="PKg-nV-JW2"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="bzg-pJ-5Cs">
+                <tapGestureRecognizer id="9br-t5-pzx">
                     <connections>
-                        <action selector="button_2_tapped:" destination="BYZ-38-t0r" id="zm7-FT-A9D"/>
+                        <action selector="button_2_tapped:" destination="BYZ-38-t0r" id="HAc-VC-Rz4"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="So9-gi-Y1N">
+                <tapGestureRecognizer id="9Cr-ie-e3D">
                     <connections>
-                        <action selector="button_3_tapped:" destination="BYZ-38-t0r" id="6FG-o9-egq"/>
+                        <action selector="button_3_tapped:" destination="BYZ-38-t0r" id="ng1-51-eNb"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="jcN-Sd-ok2">
+                <tapGestureRecognizer id="y5o-sH-ezO">
                     <connections>
-                        <action selector="button_4_tapped:" destination="BYZ-38-t0r" id="BxZ-9G-JOL"/>
+                        <action selector="button_4_tapped:" destination="BYZ-38-t0r" id="zhO-dN-Kmr"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="6lO-rq-h3Z">
+                <tapGestureRecognizer id="BbT-5R-Om8">
                     <connections>
-                        <action selector="button_5_tapped:" destination="BYZ-38-t0r" id="R4R-Wa-Bg4"/>
+                        <action selector="button_5_tapped:" destination="BYZ-38-t0r" id="XEY-FP-MUH"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="MPs-FY-yWH">
+                <tapGestureRecognizer id="Hn7-cu-9Db">
                     <connections>
-                        <action selector="button_6_tapped:" destination="BYZ-38-t0r" id="Kxa-TD-di2"/>
+                        <action selector="button_6_tapped:" destination="BYZ-38-t0r" id="A6V-5V-AHg"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1273.5" y="285.5"/>
-        </scene>
-        <!--新闻-->
-        <scene sceneID="jOx-Sg-gt2">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" hidesBottomBarWhenPushed="YES" id="kXX-Oq-c5v" customClass="WebViewController" customModule="zytyumin_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zfk-Gv-hme"/>
-                        <viewControllerLayoutGuide type="bottom" id="WAX-Gz-lEc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sby-6a-FGa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5H-QT-But">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="P5H-QT-But" firstAttribute="leading" secondItem="sby-6a-FGa" secondAttribute="leadingMargin" constant="-20" id="EUW-rA-urr"/>
-                            <constraint firstItem="P5H-QT-But" firstAttribute="top" secondItem="Zfk-Gv-hme" secondAttribute="bottom" id="Tw0-eK-k64"/>
-                            <constraint firstItem="P5H-QT-But" firstAttribute="leading" secondItem="sby-6a-FGa" secondAttribute="leading" id="VHk-7l-ivZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P5H-QT-But" secondAttribute="trailing" constant="-20" id="bs6-bR-oBy"/>
-                            <constraint firstItem="WAX-Gz-lEc" firstAttribute="top" secondItem="P5H-QT-But" secondAttribute="bottom" constant="-49" id="hVB-Hg-xOJ"/>
-                            <constraint firstAttribute="trailing" secondItem="P5H-QT-But" secondAttribute="trailing" id="jtj-91-uqO"/>
-                            <constraint firstItem="WAX-Gz-lEc" firstAttribute="top" secondItem="P5H-QT-But" secondAttribute="bottom" constant="-49" id="pye-jR-bWP"/>
-                            <constraint firstItem="P5H-QT-But" firstAttribute="top" secondItem="Zfk-Gv-hme" secondAttribute="bottom" constant="-64" id="rJw-rx-fUb"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="EUW-rA-urr"/>
-                                <exclude reference="bs6-bR-oBy"/>
-                                <exclude reference="rJw-rx-fUb"/>
-                                <exclude reference="pye-jR-bWP"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="新闻" id="GqJ-XT-Ye0"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="webView" destination="P5H-QT-But" id="Cem-EM-mg9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1vT-gs-wmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1273.5" y="-484.5"/>
         </scene>
         <!--业务-->
         <scene sceneID="o6P-lS-xXT">
@@ -486,8 +444,8 @@
         <image name="homepage_service" width="100" height="100"/>
         <image name="homepage_todo" width="100" height="100"/>
         <image name="homepage_visa" width="100" height="100"/>
-        <image name="tab_icon_homepage" width="30" height="30"/>
-        <image name="tab_icon_map" width="30" height="30"/>
-        <image name="tab_icon_user" width="30" height="30"/>
+        <image name="tab_icon_homepage" width="26" height="26"/>
+        <image name="tab_icon_map" width="26" height="26"/>
+        <image name="tab_icon_user" width="26" height="26"/>
     </resources>
 </document>

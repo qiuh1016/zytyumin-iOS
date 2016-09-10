@@ -13,7 +13,7 @@
 		B93553881D82DDB700B33174 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553871D82DDB700B33174 /* WebViewController.swift */; };
 		B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553891D82EAFC00B33174 /* ServiceViewController.swift */; };
 		B943B57D1D82A5500083AB5C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57C1D82A5500083AB5C /* Functions.swift */; };
-		B943B5801D82A5940083AB5C /* values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57F1D82A5940083AB5C /* values.swift */; };
+		B943B5801D82A5940083AB5C /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57F1D82A5940083AB5C /* Values.swift */; };
 		B99784831D82992D007FF20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784821D82992D007FF20E /* AppDelegate.swift */; };
 		B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784841D82992D007FF20E /* HomepageViewController.swift */; };
 		B99784881D82992D007FF20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99784861D82992D007FF20E /* Main.storyboard */; };
@@ -30,8 +30,9 @@
 		B93553851D82AA1300B33174 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B93553871D82DDB700B33174 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B93553891D82EAFC00B33174 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		B935538B1D83F5F800B33174 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B943B57C1D82A5500083AB5C /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		B943B57F1D82A5940083AB5C /* values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = values.swift; sourceTree = "<group>"; };
+		B943B57F1D82A5940083AB5C /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		B997847F1D82992D007FF20E /* zytyumin-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zytyumin-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99784821D82992D007FF20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B99784841D82992D007FF20E /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				B943B57C1D82A5500083AB5C /* Functions.swift */,
-				B943B57F1D82A5940083AB5C /* values.swift */,
+				B943B57F1D82A5940083AB5C /* Values.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -112,6 +113,7 @@
 		C81963A87970D49864C99931 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B935538B1D83F5F800B33174 /* WebKit.framework */,
 				24B369D574C3B43380993CC6 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -246,7 +248,7 @@
 				B93553841D82A9DA00B33174 /* MapViewController.swift in Sources */,
 				B99784831D82992D007FF20E /* AppDelegate.swift in Sources */,
 				B997848B1D82992E007FF20E /* zytyumin_iOS.xcdatamodeld in Sources */,
-				B943B5801D82A5940083AB5C /* values.swift in Sources */,
+				B943B5801D82A5940083AB5C /* Values.swift in Sources */,
 				B943B57D1D82A5500083AB5C /* Functions.swift in Sources */,
 				B93553881D82DDB700B33174 /* WebViewController.swift in Sources */,
 			);
