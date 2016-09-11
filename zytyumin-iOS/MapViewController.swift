@@ -120,6 +120,15 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         return nil
     }
 
+    
+    func mapView(mapView: BMKMapView!, annotationViewForBubble view: BMKAnnotationView!) {
+        print("\(view.annotation.title!())")
+        
+        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let vc = sb.instantiateViewControllerWithIdentifier("ShipInfoViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
 }
 
 

@@ -107,6 +107,104 @@
             </objects>
             <point key="canvasLocation" x="118.5" y="1102.5"/>
         </scene>
+        <!--Ship Info View Controller-->
+        <scene sceneID="lio-4a-7Xr">
+            <objects>
+                <viewController storyboardIdentifier="ShipInfoViewController" id="SVt-xS-BgB" customClass="ShipInfoViewController" customModule="zytyumin_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4tA-3G-MyR"/>
+                        <viewControllerLayoutGuide type="bottom" id="nUy-Om-ybo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qzd-VY-aSe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-8E-QCv" userLabel="Ship info view">
+                                <rect key="frame" x="47" y="163.5" width="280" height="340"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuN-3S-x9M">
+                                        <rect key="frame" x="10" y="286" width="125" height="44"/>
+                                        <color key="backgroundColor" red="0.082352941176470587" green="0.48627450980392156" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Gou-Rm-BHj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="轨迹">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="routeButtonTapped:" destination="SVt-xS-BgB" eventType="touchUpInside" id="XQ0-IY-7so"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52F-24-RA4">
+                                        <rect key="frame" x="145" y="286" width="125" height="44"/>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.48627450979999998" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="6oR-YE-nIM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="详情">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="detailButtonTapped:" destination="SVt-xS-BgB" eventType="touchUpInside" id="rQ5-cw-mHF"/>
+                                        </connections>
+                                    </button>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7R-xy-Xx2">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ovi-s0-4uC"/>
+                                        </constraints>
+                                        <color key="barTintColor" red="0.08235294118" green="0.48627450979999998" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="浙嘉渔1123" id="1X8-iG-7NO">
+                                                <barButtonItem key="rightBarButtonItem" systemItem="stop" id="UWQ-xf-bF0">
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="close:" destination="SVt-xS-BgB" id="aiH-ak-5ti"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="7IC-3E-vlQ"/>
+                                    <constraint firstAttribute="height" constant="340" id="7SK-2i-xQV"/>
+                                    <constraint firstItem="c7R-xy-Xx2" firstAttribute="top" secondItem="FM5-8E-QCv" secondAttribute="top" id="F5x-UQ-bYi"/>
+                                    <constraint firstAttribute="bottom" secondItem="xuN-3S-x9M" secondAttribute="bottom" constant="10" id="Fem-Qw-G9G"/>
+                                    <constraint firstItem="xuN-3S-x9M" firstAttribute="leading" secondItem="FM5-8E-QCv" secondAttribute="leading" constant="10" id="T5J-Gc-ft3"/>
+                                    <constraint firstAttribute="trailing" secondItem="c7R-xy-Xx2" secondAttribute="trailing" id="gZ6-56-Plp"/>
+                                    <constraint firstAttribute="trailing" secondItem="52F-24-RA4" secondAttribute="trailing" constant="10" id="mTW-OA-a25"/>
+                                    <constraint firstItem="c7R-xy-Xx2" firstAttribute="leading" secondItem="FM5-8E-QCv" secondAttribute="leading" id="pGq-uO-gxP"/>
+                                    <constraint firstAttribute="bottom" secondItem="52F-24-RA4" secondAttribute="bottom" constant="10" id="qtp-qp-S2l"/>
+                                    <constraint firstItem="52F-24-RA4" firstAttribute="leading" secondItem="xuN-3S-x9M" secondAttribute="trailing" constant="10" id="rOo-En-3nj"/>
+                                    <constraint firstItem="xuN-3S-x9M" firstAttribute="width" secondItem="52F-24-RA4" secondAttribute="width" id="zzu-nz-JUJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FM5-8E-QCv" firstAttribute="centerX" secondItem="qzd-VY-aSe" secondAttribute="centerX" id="Ulx-ua-5g2"/>
+                            <constraint firstItem="FM5-8E-QCv" firstAttribute="centerY" secondItem="qzd-VY-aSe" secondAttribute="centerY" id="bUb-sJ-8OF"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="contentView" destination="FM5-8E-QCv" id="Gm7-d2-Spe"/>
+                        <outlet property="detailButton" destination="52F-24-RA4" id="Ocf-AC-TuX"/>
+                        <outlet property="navigationBar" destination="c7R-xy-Xx2" id="45q-N2-1yG"/>
+                        <outlet property="routeButton" destination="xuN-3S-x9M" id="vUk-NF-uA2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbC-5l-ZX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178.5" y="285.5"/>
+        </scene>
         <!--首页-->
         <scene sceneID="NjN-4q-RaA">
             <objects>
