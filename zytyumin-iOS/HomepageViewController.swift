@@ -9,7 +9,7 @@
 import UIKit
 import SDCycleScrollView
 
-private let kGridViewMargin: CGFloat = 10
+private var kGridViewMargin: CGFloat = 10
 private let kCornerRadii = CGSize(width: 9, height: 9)
 
 
@@ -80,13 +80,17 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     }
     
     func initGridView() {
+        
+        if self.view.frame.height == 480 {
+            kGridViewMargin = 20
+        }
         let viewWidth = (view.bounds.width - 2 * kGridViewMargin - 4) / 3
         
         let contentGridView = UIView(frame: CGRectMake(kGridViewMargin, cycleScrollView.bounds.height + 0 + kGridViewMargin * 2, viewWidth * 3 + 4, viewWidth * 2 + 3))
         contentGridView.backgroundColor = UIColor.spaceLineColor()
         makeRoundedCorner(contentGridView, corners: .AllCorners, cornerRadii: CGSize(width: 10, height: 10))
         if self.view.frame.height == 480 {
-            contentGridView.center.y -= 20
+            contentGridView.center.y -= 35
         }
         self.view.addSubview(contentGridView)
         

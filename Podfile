@@ -5,4 +5,5 @@ pod 'AMPopTip'
 pod 'Just'
 pod 'CryptoSwift'
 pod 'SDCycleScrollView'
+pod 'BaiduMapKit'
 use_frameworks!

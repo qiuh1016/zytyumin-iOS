@@ -50,10 +50,14 @@ class ServiceViewController: UIViewController {
     func initView() {
         
         let lineNumber = lineTexts[index].count
-        let lineHeight = 55
+        var lineHeight = 55
         let imageWidth = 21
         let space = 15
         let cornerRadii = CGSizeMake(9, 9)
+        
+        if self.view.frame.height == 480 {
+            lineHeight = 50
+        }
         
         view.backgroundColor = UIColor.colorFromRGB(0xEEEEEE, alpha: 1)
         
