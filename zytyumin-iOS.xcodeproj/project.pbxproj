@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0685A574FD1CCCD15211A1AA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B369D574C3B43380993CC6 /* Pods.framework */; };
 		B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810E51D84F86D003735B9 /* MyAnnotation.swift */; };
+		B90810E91D854B95003735B9 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810E81D854B95003735B9 /* Ship.swift */; };
+		B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810EA1D854C1E003735B9 /* TabBarController.swift */; };
 		B93553841D82A9DA00B33174 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553831D82A9DA00B33174 /* MapViewController.swift */; };
 		B93553861D82AA1300B33174 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553851D82AA1300B33174 /* UserViewController.swift */; };
 		B93553881D82DDB700B33174 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553871D82DDB700B33174 /* WebViewController.swift */; };
@@ -30,6 +32,8 @@
 		604B702F45E618A5660A12FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B90810E21D84DA5C003735B9 /* zytyumin-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zytyumin-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		B90810E51D84F86D003735B9 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		B90810E81D854B95003735B9 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		B90810EA1D854C1E003735B9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B93553831D82A9DA00B33174 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B93553851D82AA1300B33174 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B93553871D82DDB700B33174 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -69,13 +73,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B90810E71D854B81003735B9 /* MyClass */ = {
+			isa = PBXGroup;
+			children = (
+				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
+				B93553901D84361800B33174 /* GridView.swift */,
+				B90810E81D854B95003735B9 /* Ship.swift */,
+			);
+			name = MyClass;
+			sourceTree = "<group>";
+		};
 		B943B57E1D82A5680083AB5C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				B943B57C1D82A5500083AB5C /* Functions.swift */,
 				B943B57F1D82A5940083AB5C /* Values.swift */,
-				B93553901D84361800B33174 /* GridView.swift */,
-				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -107,6 +119,8 @@
 				B93553851D82AA1300B33174 /* UserViewController.swift */,
 				B93553871D82DDB700B33174 /* WebViewController.swift */,
 				B93553891D82EAFC00B33174 /* ServiceViewController.swift */,
+				B90810EA1D854C1E003735B9 /* TabBarController.swift */,
+				B90810E71D854B81003735B9 /* MyClass */,
 				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
 				B997848C1D82992E007FF20E /* Assets.xcassets */,
@@ -251,6 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */,
+				B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */,
+				B90810E91D854B95003735B9 /* Ship.swift in Sources */,
 				B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */,
 				B93553861D82AA1300B33174 /* UserViewController.swift in Sources */,
 				B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */,

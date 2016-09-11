@@ -12,14 +12,24 @@ import UIKit
 class MapViewController: UIViewController, BMKMapViewDelegate {
     
     var bMKMapView: BMKMapView!
+    var polyline: BMKPolyline?
+    
+    var coords = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
+        
         initMapView()
-        setAnnotation(title: "Ningbo", subtitle: nil, latitude: 30, longitude: 122.02, type: .Point)
-        setAnnotation(title: "Zhoushan", subtitle: "沈家门", latitude: 30, longitude: 122.01, type: .End)
-        setAnnotation(title: "Zhoushan1", subtitle: "沈家门1", latitude: 30, longitude: 122.03, type: .Start)
+        
+        let ships = (self.tabBarController as! TabBarController).ships
+        
+        for ship in ships {
+            coords.append(ship.coor)
+            setAnnotation(ship, type: .Point)
+        }
+ 
+        drawMapLine()
     }
     
     func initNavigationBar() {
@@ -56,17 +66,18 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     }
 
     
-    func setAnnotation(title title: String, subtitle: String?, latitude: Double, longitude: Double, type: MyAnnotationType?) {
+    func setAnnotation(ship: Ship, type: MyAnnotationType) {
         let annotation = MyAnnotation()
-        annotation.title = title
-        if subtitle != nil {
-            annotation.subtitle = subtitle
-        }
-        if type != nil {
-            annotation.type = type!
-        }
-        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        annotation.title = ship.name
+        annotation.subtitle = ship.number
+        annotation.type = type
+        annotation.coordinate = ship.coor
         bMKMapView.addAnnotation(annotation)
+    }
+    
+    func drawMapLine() {
+        polyline = BMKPolyline(coordinates: &coords, count: UInt(coords.count))
+        bMKMapView.addOverlay(polyline)
     }
     
     func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
@@ -74,9 +85,6 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         if annotation.isKindOfClass(MyAnnotation) {
             var view = mapView.dequeueReusableAnnotationViewWithIdentifier("point");
             view = BMKAnnotationView(annotation: annotation, reuseIdentifier: "point");
-            view.centerOffset = CGPointMake(0, -(view!.frame.size.height * 0.5));
-            view.canShowCallout = true;
-            
             let myAnnotation = annotation as! MyAnnotation
             switch myAnnotation.type {
             case .Start:
@@ -86,7 +94,8 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
             case .Point:
                 view.image = UIImage(named: "map_icon_point");
             }
-            
+            view.centerOffset = CGPointMake(0, -(view!.frame.size.height * 0.5));
+            view.canShowCallout = true;
             return view
         }
         
@@ -98,7 +107,19 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         print(view.annotation.title!())
     }
     
-    
+    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+        if let overlayTemp = overlay as? BMKPolyline {
+            let polylineView = BMKPolylineView(overlay: overlay)
+            if overlayTemp == polyline {
+                polylineView.strokeColor = UIColor.mainColor()
+                polylineView.lineWidth = 2
+            }
+            return polylineView
+        }
+
+        return nil
+    }
+
 }
 
 
