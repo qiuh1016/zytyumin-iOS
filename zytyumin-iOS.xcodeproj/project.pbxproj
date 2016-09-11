@@ -30,6 +30,7 @@
 		B99784901D82992E007FF20E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B997848E1D82992E007FF20E /* LaunchScreen.storyboard */; };
 		B9AE5EA81D858B40003D9CF7 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */; };
 		B9AE5EAA1D858C2E003D9CF7 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */; };
+		B9AE5EAC1D859794003D9CF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		B99784911D82992E007FF20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
+		B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,13 +90,13 @@
 		B90810E71D854B81003735B9 /* MyClass */ = {
 			isa = PBXGroup;
 			children = (
-				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
-				B93553901D84361800B33174 /* GridView.swift */,
 				B9244C211D85856500E2809E /* DimmingPresentationController.swift */,
+				B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */,
 				B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */,
 				B9244C231D85896500E2809E /* GradientView.swift */,
+				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
+				B93553901D84361800B33174 /* GridView.swift */,
 				B90810E81D854B95003735B9 /* Ship.swift */,
-				B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */,
 			);
 			name = MyClass;
 			sourceTree = "<group>";
@@ -130,13 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				B99784821D82992D007FF20E /* AppDelegate.swift */,
+				B90810EA1D854C1E003735B9 /* TabBarController.swift */,
 				B99784841D82992D007FF20E /* HomepageViewController.swift */,
 				B93553831D82A9DA00B33174 /* MapViewController.swift */,
 				B93553851D82AA1300B33174 /* UserViewController.swift */,
 				B93553871D82DDB700B33174 /* WebViewController.swift */,
 				B93553891D82EAFC00B33174 /* ServiceViewController.swift */,
-				B90810EA1D854C1E003735B9 /* TabBarController.swift */,
 				B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */,
+				B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */,
 				B90810E71D854B81003735B9 /* MyClass */,
 				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
@@ -287,6 +290,7 @@
 				B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */,
 				B90810E91D854B95003735B9 /* Ship.swift in Sources */,
 				B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */,
+				B9AE5EAC1D859794003D9CF7 /* LoginViewController.swift in Sources */,
 				B9AE5EA81D858B40003D9CF7 /* BounceAnimationController.swift in Sources */,
 				B93553861D82AA1300B33174 /* UserViewController.swift in Sources */,
 				B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */,

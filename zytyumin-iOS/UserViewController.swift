@@ -135,6 +135,11 @@ class UserViewController: UIViewController {
         loginButton.backgroundColor = hasLogin ? UIColor.logoutTextColor() : UIColor.mainColor()
         
         
+        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let vc = sb.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        
+        presentViewController(vc, animated: true, completion: nil)
+        
     }
     
 }

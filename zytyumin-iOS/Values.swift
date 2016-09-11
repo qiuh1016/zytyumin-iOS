@@ -13,11 +13,11 @@ let textFontName = "Helvetica Neue"
 
 extension UIColor {
     class func mainColor() -> UIColor {
-        return UIColor.colorFromRGB(0x157CFB, alpha: 1)
+        return UIColor.colorFromRGB(0x157CFB, alpha: 1) //
     }
     
     class func mainLightColor() -> UIColor {
-        return UIColor.colorFromRGB(0xddedfd, alpha: 1)
+        return UIColor.colorFromRGB(0xddedfd, alpha: 1) //
     }
     
     class func textColor() -> UIColor {
@@ -30,6 +30,10 @@ extension UIColor {
     
     class func spaceLineColor() -> UIColor {
         return UIColor.colorFromRGB(0xcccccc, alpha: 0.5)
+    }
+    
+    class func lightGreenColor() -> UIColor {
+        return UIColor.colorFromRGB(0x50D2C2, alpha: 1)
     }
     
 }

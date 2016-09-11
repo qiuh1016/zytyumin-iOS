@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
         if ret == false {
             NSLog("manager start failed!")
         }
+        
         return true
     }
 
