@@ -4,22 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AMPopTip.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>CryptoSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Just.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,22 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0121BA2B9A770E93F20E8DEB393F1EB7</key>
+		<key>1F7EE1C72E1D4484C3F8885F90461386</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2204DAD43A8A3E82A6EB9B8098A80F15</key>
+		<key>29DD99664D189A7CA206368F493B1E0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>586E40C0BEBAB01A075A5E60359FA09D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6847254D016329D4A531D34ED2B6DF81</key>
+		<key>3248699D3298325A3566214BB421B038</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D275A393AE7C9379B1AF575E408CFF02</key>
+		<key>8603A55723BB6698CA2268560C0F784D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8BC016E295273A065788708C2776C48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E53A0EDE10B8ECF7496B295E2673EF86</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB5BA54017C737E2CFABE4923D30204D</key>
+		<key>CBCE6A91335429E93B92A8576FF452E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

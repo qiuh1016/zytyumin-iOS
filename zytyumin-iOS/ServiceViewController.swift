@@ -56,7 +56,7 @@ class ServiceViewController: UIViewController {
         let cornerRadii = CGSizeMake(9, 9)
         
         if self.view.frame.height == 480 {
-            lineHeight = 50
+            lineHeight = 44
         }
         
         view.backgroundColor = UIColor.colorFromRGB(0xEEEEEE, alpha: 1)
@@ -94,7 +94,7 @@ class ServiceViewController: UIViewController {
             let label = UILabel(frame: CGRectMake(CGFloat(space), 0, lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), CGFloat(lineHeight)))
             label.text = lineTexts[index][i]
             label.textColor = UIColor.textColor()
-            label.font = UIFont(name: "Helvetica Neue", size: 16)
+            label.font = UIFont(name: "Helvetica Neue", size: 15)
             label.backgroundColor = UIColor.clearColor()
             
             //imageView

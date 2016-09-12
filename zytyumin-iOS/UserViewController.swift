@@ -27,6 +27,11 @@ class UserViewController: UIViewController {
         initView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
     func initTap() {
         selectors.append(#selector(ServiceViewController.tapped1(_:)))
         selectors.append(#selector(ServiceViewController.tapped2(_:)))
@@ -55,7 +60,7 @@ class UserViewController: UIViewController {
         let cornerRadii = CGSizeMake(9, 9)
         
         if self.view.frame.height == 480 {
-            lineHeight = 50
+            lineHeight = 44
         }
         
         view.backgroundColor = UIColor.colorFromRGB(0xEEEEEE, alpha: 1)
@@ -88,7 +93,7 @@ class UserViewController: UIViewController {
             let label = UILabel(frame: CGRectMake(CGFloat(space), 0, lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), CGFloat(lineHeight)))
             label.text = lineTexts[i]
             label.textColor = UIColor.textColor()
-            label.font = UIFont(name: "Helvetica Neue", size: 16)
+            label.font = UIFont(name: "Helvetica Neue", size: 15)
             label.backgroundColor = UIColor.clearColor()
             
             //imageView
@@ -136,7 +141,7 @@ class UserViewController: UIViewController {
         
         
         let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        let vc = sb.instantiateViewControllerWithIdentifier("LoginNavigationViewController") //as! LoginViewController
         
         presentViewController(vc, animated: true, completion: nil)
         

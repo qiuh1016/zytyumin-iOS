@@ -25,7 +25,7 @@ extension UIColor {
     }
     
     class func logoutTextColor() -> UIColor {
-        return UIColor.colorFromRGB(0xfa2222, alpha: 1)
+        return UIColor.colorFromRGB(0xE74723, alpha: 1) //  0xE74723   0xfa2222
     }
     
     class func spaceLineColor() -> UIColor {

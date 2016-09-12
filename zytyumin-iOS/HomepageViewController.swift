@@ -54,9 +54,6 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         
     }
     
-    
-        
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tabBarController?.tabBar.hidden = false

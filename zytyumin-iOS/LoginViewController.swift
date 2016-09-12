@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var buttonToBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelToBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var viewToViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -32,28 +33,36 @@ class LoginViewController: UIViewController {
         initTap()
         
         UIApplication.sharedApplication().statusBarStyle = .Default
+
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.view.sendSubviewToBack((self.navigationController?.navigationBar)!)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+//        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
     }
     
     func initView() {
         loginButton.layer.cornerRadius = 5
         
         if self.view.bounds.height == 568 {
-            imageToTopConstraint.constant = 80
+            imageToTopConstraint.constant = 80 - 64
             viewToViewConstraint.constant = -3
             buttonToViewConstraint.constant = 22
             buttonToBottomConstraint.constant = 55
             labelToBottomContraint.constant = 20
         } else if self.view.bounds.height == 480 {
-            imageToTopConstraint.constant = 40
+            imageToTopConstraint.constant = 40 - 40
             viewToViewConstraint.constant = -3
             buttonToViewConstraint.constant = 15
-            buttonToBottomConstraint.constant = 45
-            labelToBottomContraint.constant = 15
+            buttonToBottomConstraint.constant = 36
+            labelToBottomContraint.constant = 10
+            buttonHeightConstraint.constant = 45
         } else if self.view.bounds.height == 736 {
             imageWidthConstraint.constant = 180
         }
@@ -113,6 +122,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupLabelTapped(sender: AnyObject) {
         print("signupLabelTapped")
+        performSegueWithIdentifier("signupSegue", sender: nil)
     }
     
     @IBAction func forgetPasswordLabelTapped(sender: AnyObject) {
@@ -124,9 +134,9 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool{
-        if textField == accountTextField{
+        if textField == accountTextField {
             passwordTextField.becomeFirstResponder()
-        }else if textField == passwordTextField{
+        }else if textField == passwordTextField {
             passwordTextField.resignFirstResponder()
         }
         return true

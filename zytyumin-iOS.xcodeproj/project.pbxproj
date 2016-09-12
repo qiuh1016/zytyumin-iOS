@@ -31,6 +31,7 @@
 		B9AE5EA81D858B40003D9CF7 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */; };
 		B9AE5EAA1D858C2E003D9CF7 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */; };
 		B9AE5EAC1D859794003D9CF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */; };
+		B9AE5EAE1D8632BE003D9CF7 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AE5EAD1D8632BE003D9CF7 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		B9AE5EA71D858B40003D9CF7 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B9AE5EAD1D8632BE003D9CF7 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				B93553891D82EAFC00B33174 /* ServiceViewController.swift */,
 				B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */,
 				B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */,
+				B9AE5EAD1D8632BE003D9CF7 /* SignupViewController.swift */,
 				B90810E71D854B81003735B9 /* MyClass */,
 				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
@@ -288,6 +291,7 @@
 			files = (
 				B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */,
 				B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */,
+				B9AE5EAE1D8632BE003D9CF7 /* SignupViewController.swift in Sources */,
 				B90810E91D854B95003735B9 /* Ship.swift in Sources */,
 				B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */,
 				B9AE5EAC1D859794003D9CF7 /* LoginViewController.swift in Sources */,
@@ -420,9 +424,54 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++.6.0.9\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDCycleScrollView\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zytyumin-iOS/zytyumin-iOS-Bridging-Header.h";
@@ -438,9 +487,54 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++.6.0.9\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDCycleScrollView\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zytyumin-iOS/zytyumin-iOS-Bridging-Header.h";

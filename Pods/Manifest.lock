@@ -1,25 +1,19 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AMPopTip (0.10.2)
-  - BaiduMapKit (2.10.2)
-  - CryptoSwift (0.3.1)
-  - Just (0.4.7)
-  - MJRefresh (3.1.0)
+  - Alamofire (3.5.0)
+  - BaiduMapKit (3.0.0)
+  - MJRefresh (3.1.12)
   - SDCycleScrollView (1.62):
     - SDWebImage (~> 3.7)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
-  - AMPopTip
   - BaiduMapKit
-  - CryptoSwift
-  - Just
   - MJRefresh
-  - SDCycleScrollView
+  - SDCycleScrollView (= 1.62)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -32,14 +26,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AMPopTip: 0788a9452806049e3aa0d6d09324606fc41ea646
-  BaiduMapKit: b1706a062597c70ec62a0cca93212cba1d3017e1
-  CryptoSwift: baf01e3fb3226c0155cd54c266be882b13d45d5e
-  Just: 946bae197f898da6b49e27e10dbe9dfbf1216f29
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDCycleScrollView: ae016cb4cc4036523917f146ede6f7b11d408f6a
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
