@@ -22,6 +22,8 @@
 		B93553911D84361800B33174 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93553901D84361800B33174 /* GridView.swift */; };
 		B943B57D1D82A5500083AB5C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57C1D82A5500083AB5C /* Functions.swift */; };
 		B943B5801D82A5940083AB5C /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B943B57F1D82A5940083AB5C /* Values.swift */; };
+		B9936CDA1D8676D60096A789 /* SMSCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9936CD91D8676D60096A789 /* SMSCodeViewController.swift */; };
+		B9936CDC1D8688840096A789 /* SMSCodeNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9936CDB1D8688840096A789 /* SMSCodeNumberView.swift */; };
 		B99784831D82992D007FF20E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784821D82992D007FF20E /* AppDelegate.swift */; };
 		B99784851D82992D007FF20E /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99784841D82992D007FF20E /* HomepageViewController.swift */; };
 		B99784881D82992D007FF20E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99784861D82992D007FF20E /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		B93553901D84361800B33174 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		B943B57C1D82A5500083AB5C /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		B943B57F1D82A5940083AB5C /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		B9936CD91D8676D60096A789 /* SMSCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSCodeViewController.swift; sourceTree = "<group>"; };
+		B9936CDB1D8688840096A789 /* SMSCodeNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSCodeNumberView.swift; sourceTree = "<group>"; };
 		B997847F1D82992D007FF20E /* zytyumin-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zytyumin-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99784821D82992D007FF20E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B99784841D82992D007FF20E /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
 				B93553901D84361800B33174 /* GridView.swift */,
 				B90810E81D854B95003735B9 /* Ship.swift */,
+				B9936CDB1D8688840096A789 /* SMSCodeNumberView.swift */,
 			);
 			name = MyClass;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */,
 				B9AE5EAB1D859794003D9CF7 /* LoginViewController.swift */,
 				B9AE5EAD1D8632BE003D9CF7 /* SignupViewController.swift */,
+				B9936CD91D8676D60096A789 /* SMSCodeViewController.swift */,
 				B90810E71D854B81003735B9 /* MyClass */,
 				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
@@ -291,7 +297,9 @@
 			files = (
 				B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */,
 				B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */,
+				B9936CDA1D8676D60096A789 /* SMSCodeViewController.swift in Sources */,
 				B9AE5EAE1D8632BE003D9CF7 /* SignupViewController.swift in Sources */,
+				B9936CDC1D8688840096A789 /* SMSCodeNumberView.swift in Sources */,
 				B90810E91D854B95003735B9 /* Ship.swift in Sources */,
 				B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */,
 				B9AE5EAC1D859794003D9CF7 /* LoginViewController.swift in Sources */,

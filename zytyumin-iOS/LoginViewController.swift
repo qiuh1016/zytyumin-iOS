@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupLabel: UILabel!
     
     var buttonToBottom: CGFloat!
+    var viewWillDisappear = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,12 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.view.sendSubviewToBack((self.navigationController?.navigationBar)!)
+        viewWillDisappear = false
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
+        viewWillDisappear = true
     }
     
     func initView() {
@@ -90,7 +92,7 @@ class LoginViewController: UIViewController {
         let keyboardHeight = keyboardInfo?.CGRectValue.size.height
         
         //加这个判断 防止在两个输入框之间切换的时候进行动画 原因不明
-        if buttonToBottomConstraint.constant == buttonToBottom {
+        if buttonToBottomConstraint.constant == buttonToBottom && !viewWillDisappear {
         
             buttonToBottomConstraint.constant = keyboardHeight! + 10
             UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
@@ -127,6 +129,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgetPasswordLabelTapped(sender: AnyObject) {
         print("forgetPasswordLabelTapped")
+        performSegueWithIdentifier("smsSegue", sender: nil)
     }
     
 }
