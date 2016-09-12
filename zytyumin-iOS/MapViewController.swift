@@ -33,7 +33,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     }
     
     func initNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
         self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.translucent = false

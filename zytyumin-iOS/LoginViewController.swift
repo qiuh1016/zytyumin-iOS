@@ -41,6 +41,10 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.view.sendSubviewToBack((self.navigationController?.navigationBar)!)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         viewWillDisappear = false
     }
     
@@ -51,6 +55,7 @@ class LoginViewController: UIViewController {
     
     func initView() {
         loginButton.layer.cornerRadius = 5
+        loginButton.backgroundColor = UIColor.mainColor()
         
         if self.view.bounds.height == 568 {
             imageToTopConstraint.constant = 80 - 64

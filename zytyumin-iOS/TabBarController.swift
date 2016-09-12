@@ -28,6 +28,8 @@ class TabBarController: UITabBarController {
         ship2.coor = CLLocationCoordinate2DMake(30.02, 122.02)
         ship2.name = "name2"
         ships.append(ship2)
+        
+        self.tabBar.tintColor = UIColor.tabBarColor()
     }
     
 }

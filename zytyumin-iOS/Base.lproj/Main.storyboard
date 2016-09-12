@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6DE-53-x90">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8TP-5Y-Ytv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -121,7 +121,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_5" translatesAutoresizingMaskIntoConstraints="NO" id="cre-yg-LwQ">
+                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_5" translatesAutoresizingMaskIntoConstraints="NO" id="cre-yg-LwQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-JX-Ry1">
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBe-eL-T0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41.5" y="-678.5"/>
+            <point key="canvasLocation" x="458.5" y="-664.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="aVd-8j-w4X">
@@ -164,7 +164,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jno-rr-h17">
                                 <rect key="frame" x="30" y="532" width="315" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="XxN-IB-3DH"/>
                                 </constraints>
@@ -306,7 +306,7 @@
                                     <outletCollection property="gestureRecognizers" destination="gn0-kV-9UM" appends="YES" id="XzL-Kh-MDU"/>
                                 </connections>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark-1" translatesAutoresizingMaskIntoConstraints="NO" id="QUJ-pA-Z3V">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="QUJ-pA-Z3V">
                                 <rect key="frame" x="112" y="126" width="150" height="115"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -413,7 +413,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cex-S4-ZaS">
                                 <rect key="frame" x="30" y="532" width="315" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="N1Y-m3-YQp"/>
                                 </constraints>
@@ -736,13 +736,15 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHa-J9-ZgU">
-                                <rect key="frame" x="269" y="20" width="90" height="28"/>
+                                <rect key="frame" x="255" y="30" width="90" height="28"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="E2J-Ec-yrt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="企业账号注册"/>
+                                <state key="normal" title="企业账号注册">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="switchButtonTapped:" destination="8Gj-Zf-dSq" eventType="touchUpInside" id="Zoa-u2-hDb"/>
                                 </connections>
@@ -750,7 +752,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="UHa-J9-ZgU" firstAttribute="top" secondItem="EJT-2u-6eJ" secondAttribute="top" constant="20" id="1Dh-H8-14J"/>
+                            <constraint firstItem="UHa-J9-ZgU" firstAttribute="top" secondItem="EJT-2u-6eJ" secondAttribute="top" constant="30" id="1Dh-H8-14J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e9n-Ov-kx8" secondAttribute="trailing" constant="10" id="2Qq-tp-gm5"/>
                             <constraint firstAttribute="trailing" secondItem="xAZ-Qb-suz" secondAttribute="trailing" constant="30" id="7Mw-Ie-F9F"/>
                             <constraint firstItem="2Wx-Mq-mEs" firstAttribute="top" secondItem="Cex-S4-ZaS" secondAttribute="bottom" constant="80" id="AQc-nX-CXx"/>
@@ -783,13 +785,14 @@
                             <constraint firstItem="0ou-km-2Qx" firstAttribute="top" secondItem="EJT-2u-6eJ" secondAttribute="top" id="mRY-fy-z5C"/>
                             <constraint firstAttribute="trailing" secondItem="6vF-QV-rhR" secondAttribute="trailing" constant="30" id="npB-uW-hFa"/>
                             <constraint firstItem="Cex-S4-ZaS" firstAttribute="leading" secondItem="EJT-2u-6eJ" secondAttribute="leading" constant="30" id="pM4-0q-Gwn"/>
-                            <constraint firstAttribute="trailing" secondItem="UHa-J9-ZgU" secondAttribute="trailing" constant="16" id="pza-Ux-kc4"/>
+                            <constraint firstAttribute="trailing" secondItem="UHa-J9-ZgU" secondAttribute="trailing" constant="30" id="pza-Ux-kc4"/>
                             <constraint firstItem="UHa-J9-ZgU" firstAttribute="trailing" secondItem="EJT-2u-6eJ" secondAttribute="trailingMargin" id="sOh-ek-2LA"/>
                             <constraint firstItem="vnN-2Q-E8c" firstAttribute="leading" secondItem="EJT-2u-6eJ" secondAttribute="leading" constant="30" id="tkc-09-JDj"/>
                             <constraint firstItem="Cex-S4-ZaS" firstAttribute="top" secondItem="TBG-HY-fB7" secondAttribute="bottom" constant="34" id="wI1-gI-ZG7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="sOh-ek-2LA"/>
                                 <exclude reference="UKf-aB-8tn"/>
                                 <exclude reference="dQp-EX-3Nc"/>
                                 <exclude reference="gbs-JR-iHm"/>
@@ -1006,7 +1009,7 @@
         <image name="background_1" width="375" height="667"/>
         <image name="background_2" width="398" height="681"/>
         <image name="background_5" width="390" height="694"/>
-        <image name="mark-1" width="602" height="468"/>
+        <image name="mark" width="301" height="234"/>
         <image name="tab_icon_homepage" width="26" height="26"/>
         <image name="tab_icon_map" width="26" height="26"/>
         <image name="tab_icon_user" width="26" height="26"/>

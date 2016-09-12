@@ -60,7 +60,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
     }
     
     func initNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.mainColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()] //, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()

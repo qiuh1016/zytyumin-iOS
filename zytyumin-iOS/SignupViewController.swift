@@ -47,6 +47,8 @@ class SignupViewController: UIViewController {
         signupButton.layer.cornerRadius = 5
         switchButton.layer.cornerRadius = 5
         
+        signupButton.backgroundColor = UIColor.mainColor()
+        
         if self.view.bounds.height == 568 {
             buttonToViewConstraint.constant = 22
             buttonToBottomConstraint.constant = 55
