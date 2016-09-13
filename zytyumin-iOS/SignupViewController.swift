@@ -44,8 +44,8 @@ class SignupViewController: UIViewController {
     }
     
     func initView() {
-        signupButton.layer.cornerRadius = 5
-        switchButton.layer.cornerRadius = 5
+        signupButton.layer.cornerRadius = kCornerRadii
+        switchButton.layer.cornerRadius = kCornerRadii
         
         signupButton.backgroundColor = UIColor.mainColor()
         

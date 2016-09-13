@@ -53,7 +53,6 @@ class ServiceViewController: UIViewController {
         var lineHeight = 55
         let imageWidth = 21
         let space = 15
-        let cornerRadii = CGSizeMake(9, 9)
         
         if self.view.frame.height == 480 {
             lineHeight = 44
@@ -65,7 +64,7 @@ class ServiceViewController: UIViewController {
         let viewWidth = self.view.bounds.width - 20
         let contentView = UIView(frame: CGRectMake(10, 20, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
         contentView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: CGSize(width: 10, height: 10))
+        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: kOuterCornerRadii)
         view.addSubview(contentView)
         
         if lineNumber == 0 {
@@ -81,12 +80,12 @@ class ServiceViewController: UIViewController {
             lineView.addGestureRecognizer(taps[i])
             
             if lineNumber == 1 {
-                makeRoundedCorner(lineView, corners: [UIRectCorner.AllCorners], cornerRadii: cornerRadii)
+                makeRoundedCorner(lineView, corners: [UIRectCorner.AllCorners], cornerRadii: kInnerCornerRadii)
             } else {
                 if i == lineNumber - 1 {
-                    makeRoundedCorner(lineView, corners: [UIRectCorner.BottomLeft, .BottomRight], cornerRadii: cornerRadii)
+                    makeRoundedCorner(lineView, corners: [UIRectCorner.BottomLeft, .BottomRight], cornerRadii: kInnerCornerRadii)
                 } else if i == 0 {
-                    makeRoundedCorner(lineView, corners: [UIRectCorner.TopLeft, .TopRight], cornerRadii: cornerRadii)
+                    makeRoundedCorner(lineView, corners: [UIRectCorner.TopLeft, .TopRight], cornerRadii: kInnerCornerRadii)
                 }
             }
             

@@ -81,8 +81,7 @@ class SMSCodeViewController: UIViewController {
         resendLabel.userInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(SMSCodeViewController.resendSMS(_:)))
         resendLabel.addGestureRecognizer(tap)
-        
-        
+    
         self.view.addSubview(resendLabel)
     }
     

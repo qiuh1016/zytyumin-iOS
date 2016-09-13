@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     }
     
     func initView() {
-        loginButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = kCornerRadii
         loginButton.backgroundColor = UIColor.mainColor()
         
         if self.view.bounds.height == 568 {

@@ -42,6 +42,10 @@ class ShipInfoViewController: UIViewController {
         
         detailButton.layer.cornerRadius = 10
         detailButton.layer.masksToBounds = true
+        
+        navigationBar.barTintColor = UIColor.mainColor()
+        routeButton.backgroundColor = UIColor.mainColor()
+        detailButton.backgroundColor = UIColor.mainColor()
     }
     
     @IBAction func close(sender: AnyObject) {

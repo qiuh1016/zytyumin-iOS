@@ -10,8 +10,6 @@ import UIKit
 import SDCycleScrollView
 
 private var kGridViewMargin: CGFloat = 10
-private let kCornerRadii = CGSize(width: 9, height: 9)
-
 
 class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
 
@@ -85,7 +83,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         
         let contentGridView = UIView(frame: CGRectMake(kGridViewMargin, cycleScrollView.bounds.height + 0 + kGridViewMargin * 2, viewWidth * 3 + 4, viewWidth * 2 + 3))
         contentGridView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentGridView, corners: .AllCorners, cornerRadii: CGSize(width: 10, height: 10))
+        makeRoundedCorner(contentGridView, corners: .AllCorners, cornerRadii: kOuterCornerRadii)
         if self.view.frame.height == 480 {
             contentGridView.center.y -= 35
         }
@@ -97,7 +95,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         serverGridView.clickCallBack = { () -> () in
             self.performSegueWithIdentifier("serviceSegue", sender: 0)
         }
-        makeRoundedCorner(serverGridView, corners: .TopLeft, cornerRadii: kCornerRadii)
+        makeRoundedCorner(serverGridView, corners: .TopLeft, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(serverGridView)
         
         let recordGridView = GridView(frame: CGRectMake(2 + viewWidth, 1, viewWidth, viewWidth))
@@ -114,7 +112,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         visaGridView.clickCallBack = { () -> () in
             self.performSegueWithIdentifier("serviceSegue", sender: 2)
         }
-        makeRoundedCorner(visaGridView, corners: .TopRight, cornerRadii: kCornerRadii)
+        makeRoundedCorner(visaGridView, corners: .TopRight, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(visaGridView)
         
         let lawGridView = GridView(frame: CGRectMake(1, 2 + viewWidth, viewWidth, viewWidth))
@@ -123,7 +121,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         lawGridView.clickCallBack = { () -> () in
             self.performSegueWithIdentifier("serviceSegue", sender: 3)
         }
-        makeRoundedCorner(lawGridView, corners: .BottomLeft, cornerRadii: kCornerRadii)
+        makeRoundedCorner(lawGridView, corners: .BottomLeft, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(lawGridView)
         
         let processGridView = GridView(frame: CGRectMake(2 + viewWidth, 2 + viewWidth, viewWidth, viewWidth))
@@ -140,7 +138,7 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         todoGridView.clickCallBack = { () -> () in
             self.performSegueWithIdentifier("serviceSegue", sender: 5)
         }
-        makeRoundedCorner(todoGridView, corners: .BottomRight, cornerRadii: kCornerRadii)
+        makeRoundedCorner(todoGridView, corners: .BottomRight, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(todoGridView)
     }
     
