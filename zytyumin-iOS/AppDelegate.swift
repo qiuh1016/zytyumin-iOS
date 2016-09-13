@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        //百度地图
         _mapManager = BMKMapManager()
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数
         let ret = _mapManager?.start("Zumj5RTTefpgIQrjkaFzddHYP3fA1Hjz", generalDelegate: self)
@@ -25,7 +26,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
             NSLog("manager start failed!")
         }
         
+        //友盟 统计
+        let configure = UMAnalyticsConfig()
+        configure.appKey = "57d76a0867e58e341c002784"
+
+        let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        if let ver = version {
+            MobClick.setAppVersion(ver as! String)
+        }
+        MobClick.startWithConfigure(configure)
+        
+        //友盟 推送
+        UMessage.startWithAppkey("57d76a0867e58e341c002784", launchOptions: nil)
+        UMessage.registerForRemoteNotifications()
+        UMessage.setLogEnabled(true)
+        
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        //友盟 推送
+        UMessage.didReceiveRemoteNotification(userInfo)
     }
 
     func applicationWillResignActive(application: UIApplication) {

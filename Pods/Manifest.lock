@@ -9,23 +9,16 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - SwiftyJSON (2.3.2)
   - Toast-Swift (1.4.0)
+  - UMengAnalytics-NO-IDFA (4.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - BaiduMapKit
   - MJRefresh
   - SDCycleScrollView (= 1.62)
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - SwiftyJSON
   - Toast-Swift (~> 1.4.0)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  - UMengAnalytics-NO-IDFA
 
 SPEC CHECKSUMS:
   Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
@@ -35,5 +28,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast-Swift: aa9f0120aa6f0b6186a1e7fce2797571be34d857
+  UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
 
 COCOAPODS: 0.39.0

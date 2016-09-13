@@ -14,6 +14,7 @@
 		B91A7C861D87823A0061B7B1 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C851D8782390061B7B1 /* Urls.swift */; };
 		B91A7C881D8782BA0061B7B1 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C871D8782BA0061B7B1 /* HudView.swift */; };
 		B91A7C8A1D8786EE0061B7B1 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C891D8786EE0061B7B1 /* MD5.swift */; };
+		B91A7C8E1D87BF000061B7B1 /* libUMessage_Sdk_1.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B91A7C8C1D87BF000061B7B1 /* libUMessage_Sdk_1.3.0.a */; };
 		B9244C1D1D8578C800E2809E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B9244C1C1D8578C800E2809E /* Podfile */; };
 		B9244C201D857F1900E2809E /* ShipInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */; };
 		B9244C221D85856500E2809E /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9244C211D85856500E2809E /* DimmingPresentationController.swift */; };
@@ -50,6 +51,8 @@
 		B91A7C851D8782390061B7B1 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		B91A7C871D8782BA0061B7B1 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		B91A7C891D8786EE0061B7B1 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
+		B91A7C8C1D87BF000061B7B1 /* libUMessage_Sdk_1.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.3.0.a; sourceTree = "<group>"; };
+		B91A7C8D1D87BF000061B7B1 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		B9244C1C1D8578C800E2809E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoViewController.swift; sourceTree = "<group>"; };
 		B9244C211D85856500E2809E /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0685A574FD1CCCD15211A1AA /* Pods.framework in Frameworks */,
+				B91A7C8E1D87BF000061B7B1 /* libUMessage_Sdk_1.3.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,15 @@
 				B90810E81D854B95003735B9 /* Ship.swift */,
 			);
 			name = MyClass;
+			sourceTree = "<group>";
+		};
+		B91A7C8B1D87BF000061B7B1 /* UMessage_Sdk_1.3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				B91A7C8C1D87BF000061B7B1 /* libUMessage_Sdk_1.3.0.a */,
+				B91A7C8D1D87BF000061B7B1 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.3.0;
 			sourceTree = "<group>";
 		};
 		B943B57E1D82A5680083AB5C /* Utils */ = {
@@ -162,6 +175,7 @@
 				B943B57E1D82A5680083AB5C /* Utils */,
 				B99784861D82992D007FF20E /* Main.storyboard */,
 				B997848E1D82992E007FF20E /* LaunchScreen.storyboard */,
+				B91A7C8B1D87BF000061B7B1 /* UMessage_Sdk_1.3.0 */,
 				B997848C1D82992E007FF20E /* Assets.xcassets */,
 				B9244C1C1D8578C800E2809E /* Podfile */,
 				B99784911D82992E007FF20E /* Info.plist */,
@@ -449,6 +463,10 @@
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zytyumin-iOS/UMessage_Sdk_1.3.0",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"sqlite3.0\"",
@@ -492,7 +510,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CETCME.renchuanliandong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zytyumin-iOS/zytyumin-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -512,6 +530,10 @@
 				INFOPLIST_FILE = "zytyumin-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/zytyumin-iOS/UMessage_Sdk_1.3.0",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"sqlite3.0\"",
@@ -555,7 +577,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CETCME.zytyumin-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CETCME.renchuanliandong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zytyumin-iOS/zytyumin-iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
