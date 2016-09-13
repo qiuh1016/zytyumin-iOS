@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class TabBarController: UITabBarController {
     
@@ -14,29 +16,70 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("TabBarController")
-        
-//        let ship = Ship.init()
-//        ships.append(ship)
-//        
-//        let ship1 = Ship.init()
-//        ship1.coor = CLLocationCoordinate2DMake(30.01, 122.01)
-//        ship1.name = "name1"
-//        ships.append(ship1)
-//        
-//        let ship2 = Ship.init()
-//        ship2.coor = CLLocationCoordinate2DMake(30.02, 122.02)
-//        ship2.name = "name2"
-//        ships.append(ship2)
-        
+
         self.tabBar.tintColor = UIColor.tabBarColor()
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarController.didReceiveShipsData(_:)), name: "didReceiveShipsData", object: nil)
+        
+        checkUpdate()
 
     }
     
     func didReceiveShipsData(notification: NSNotification) {
         self.ships = (notification.object as? [Ship])!
+    }
+    
+    func checkUpdate() {
+        
+        let okHandler = { (action: UIAlertAction!) -> Void in
+            let url = NSURL(string: appViewUrl)
+            if UIApplication.sharedApplication().canOpenURL(url!) {
+                UIApplication.sharedApplication().openURL(url!)
+            } else {
+                print("cannot open app store ")
+            }
+        }
+        
+        Alamofire.request(.POST, checkUpdateUrl, parameters: ["id": 1071530431]).responseJSON { response in
+            switch response.result {
+            case .Success(let value):
+                let results = JSON(value)["results"].arrayValue
+                let version = results[0]["version"].stringValue
+                let description = results[0]["description"].stringValue
+                if self.compareVersionsFromAppStore(version) {
+                    alertView("\(version)版本已发布", message: "更新内容:\n\(description)\n\n是否前往下载？", okActionTitle: "下载", cancleActionTitle: "取消", okHandler: okHandler, viewController: self)
+                    print("need update: serverVersion: \(version)")
+                } else{
+                    print("no update: serverVersion: \(version)")
+                }
+            case .Failure(let error):
+                print("check update error: \n\(error)")
+            }
+        }
+        
+    }
+    
+    func compareVersionsFromAppStore(AppStoreVersion: String) -> Bool {
+        
+        let AppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        if AppVersion == nil {
+            return false
+        }
+        
+        var aArray = AppStoreVersion.componentsSeparatedByString(".")
+        var bArray = AppVersion!.componentsSeparatedByString(".")
+        
+        while aArray.count < bArray.count { aArray.append("0") }
+        while aArray.count > bArray.count { bArray.append("0") }
+        
+        for i in 0 ... aArray.count - 1 {
+            if Int(aArray[i]) > Int(bArray[i]) {
+                return true
+            }
+        }
+        
+        return false
+        
     }
     
 }
