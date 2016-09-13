@@ -97,7 +97,7 @@ class SMSCodeViewController: UIViewController {
     
     func editingChanged() {
         
-        let str = textfield.text! as NSString
+        let str = textfield.text!
         
         if str == "" {
             codeView1.label.text = ""
@@ -107,62 +107,34 @@ class SMSCodeViewController: UIViewController {
             return
         }
         
-        switch str.length {
+        switch (str as NSString).length {
         case 1:
-            codeView1.label.text = str as String
+            codeView1.label.text = str
             codeView2.label.text = ""
             codeView3.label.text = ""
             codeView4.label.text = ""
         case 2:
-            codeView1.label.text = (str as String)[0 ..< 1]
-            codeView2.label.text = (str as String)[1 ..< 2]
+            codeView1.label.text = str[0 ..< 1]
+            codeView2.label.text = str[1 ..< 2]
             codeView3.label.text = ""
             codeView4.label.text = ""
         case 3:
-            codeView1.label.text = (str as String)[0 ..< 1]
-            codeView2.label.text = (str as String)[1 ..< 2]
-            codeView3.label.text = (str as String)[2 ..< 3]
+            codeView1.label.text = str[0 ..< 1]
+            codeView2.label.text = str[1 ..< 2]
+            codeView3.label.text = str[2 ..< 3]
             codeView4.label.text = ""
         case 4:
-            codeView1.label.text = (str as String)[0 ..< 1]
-            codeView2.label.text = (str as String)[1 ..< 2]
-            codeView3.label.text = (str as String)[2 ..< 3]
-            codeView4.label.text = (str as String)[3 ..< 4]
+            codeView1.label.text = str[0 ..< 1]
+            codeView2.label.text = str[1 ..< 2]
+            codeView3.label.text = str[2 ..< 3]
+            codeView4.label.text = str[3 ..< 4]
             
             if str == smsCode {
                 print("smsCode correct")
-                
-                var style = ToastStyle()
-                style.backgroundColor = UIColor.colorFromRGB(0x666666, alpha: 1)
-                self.view.makeToast("CODE CORRECT", duration: 2.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
+                self.codeCorrect()
             } else{
                 print("smsCode error")
-                
-                var style = ToastStyle()
-                style.backgroundColor = UIColor.colorFromRGB(0x666666, alpha: 1)
-                self.view.makeToast("CODE ERROR", duration: 1.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
-    
-                
-                UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-                    
-                    self.codeView1.label.alpha = 0
-                    self.codeView2.label.alpha = 0
-                    self.codeView3.label.alpha = 0
-                    self.codeView4.label.alpha = 0
-                    
-                    }, completion: { _ in
-                        self.textfield.text = ""
-                        self.codeView1.label.text = ""
-                        self.codeView2.label.text = ""
-                        self.codeView3.label.text = ""
-                        self.codeView4.label.text = ""
-                        
-                        self.codeView1.label.alpha = 1
-                        self.codeView2.label.alpha = 1
-                        self.codeView3.label.alpha = 1
-                        self.codeView4.label.alpha = 1
-                })
-                
+                self.codeError()
             }
             
         default:
@@ -192,6 +164,42 @@ class SMSCodeViewController: UIViewController {
         
         time -= 1
         
+    }
+    
+    func codeError() {
+        
+        var style = ToastStyle()
+        style.backgroundColor = UIColor.colorFromRGB(0x666666, alpha: 1)
+        self.view.makeToast("CODE ERROR", duration: 1.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
+        
+        
+        UIView.animateWithDuration(1, delay: 0.5, options: .CurveEaseIn, animations: {
+            
+            self.codeView1.label.alpha = 0
+            self.codeView2.label.alpha = 0
+            self.codeView3.label.alpha = 0
+            self.codeView4.label.alpha = 0
+            
+            }, completion: { _ in
+                self.textfield.text = ""
+                self.codeView1.label.text = ""
+                self.codeView2.label.text = ""
+                self.codeView3.label.text = ""
+                self.codeView4.label.text = ""
+                
+                self.codeView1.label.alpha = 1
+                self.codeView2.label.alpha = 1
+                self.codeView3.label.alpha = 1
+                self.codeView4.label.alpha = 1
+        })
+
+    }
+    
+    func codeCorrect() {
+        var style = ToastStyle()
+        style.backgroundColor = UIColor.colorFromRGB(0x666666, alpha: 1)
+        self.view.makeToast("CODE CORRECT", duration: 2.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
+
     }
     
     

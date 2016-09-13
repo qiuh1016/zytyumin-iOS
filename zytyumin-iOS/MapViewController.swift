@@ -15,22 +15,17 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     var polyline: BMKPolyline?
     
     var coords = [CLLocationCoordinate2D]()
+    var anntations = [MyAnnotation]()
+    var overlays = [BMKOverlay]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
         
         initMapView()
-        
-        let ships = (self.tabBarController as! TabBarController).ships
-        
-        for ship in ships {
-            coords.append(ship.coor)
-            setAnnotation(ship, type: .Point)
-        }
- 
-        drawMapLine()
+    
     }
+    
     
     func initNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
@@ -49,7 +44,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         
         let mapStatus = BMKMapStatus()
         mapStatus.targetGeoPt = CLLocationCoordinate2D(latitude: 30, longitude: 122)
-        mapStatus.fLevel = 13
+        mapStatus.fLevel = 8
         bMKMapView.setMapStatus(mapStatus)
     }
     
@@ -57,12 +52,22 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         super.viewWillAppear(animated)
         //bMKMapView.viewWillAppear()
         bMKMapView.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
+        
+        let ships = (self.tabBarController as! TabBarController).ships
+        for ship in ships {
+            coords.append(ship.coor)
+            setAnnotation(ship, type: .Point)
+        }
+        drawMapLine()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //bMKMapView.viewWillDisappear()
         bMKMapView.delegate = nil // 不用时，置nil
+        
+        bMKMapView.removeAnnotations(anntations)
+        bMKMapView.removeOverlays(overlays)
     }
 
     
@@ -73,11 +78,13 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         annotation.type = type
         annotation.coordinate = ship.coor
         bMKMapView.addAnnotation(annotation)
+        anntations.append(annotation)
     }
     
     func drawMapLine() {
         polyline = BMKPolyline(coordinates: &coords, count: UInt(coords.count))
         bMKMapView.addOverlay(polyline)
+        overlays.append(polyline!)
     }
     
     func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {

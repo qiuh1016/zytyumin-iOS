@@ -11,6 +11,9 @@
 		B90810E61D84F86D003735B9 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810E51D84F86D003735B9 /* MyAnnotation.swift */; };
 		B90810E91D854B95003735B9 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810E81D854B95003735B9 /* Ship.swift */; };
 		B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90810EA1D854C1E003735B9 /* TabBarController.swift */; };
+		B91A7C861D87823A0061B7B1 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C851D8782390061B7B1 /* Urls.swift */; };
+		B91A7C881D8782BA0061B7B1 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C871D8782BA0061B7B1 /* HudView.swift */; };
+		B91A7C8A1D8786EE0061B7B1 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91A7C891D8786EE0061B7B1 /* MD5.swift */; };
 		B9244C1D1D8578C800E2809E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B9244C1C1D8578C800E2809E /* Podfile */; };
 		B9244C201D857F1900E2809E /* ShipInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */; };
 		B9244C221D85856500E2809E /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9244C211D85856500E2809E /* DimmingPresentationController.swift */; };
@@ -44,6 +47,9 @@
 		B90810E51D84F86D003735B9 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		B90810E81D854B95003735B9 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		B90810EA1D854C1E003735B9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B91A7C851D8782390061B7B1 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		B91A7C871D8782BA0061B7B1 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		B91A7C891D8786EE0061B7B1 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		B9244C1C1D8578C800E2809E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B9244C1F1D857F1900E2809E /* ShipInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoViewController.swift; sourceTree = "<group>"; };
 		B9244C211D85856500E2809E /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 				B9AE5EA91D858C2E003D9CF7 /* SlideOutAnimationController.swift */,
 				B9244C231D85896500E2809E /* GradientView.swift */,
 				B90810E51D84F86D003735B9 /* MyAnnotation.swift */,
+				B91A7C891D8786EE0061B7B1 /* MD5.swift */,
+				B91A7C871D8782BA0061B7B1 /* HudView.swift */,
 				B93553901D84361800B33174 /* GridView.swift */,
 				B9936CDB1D8688840096A789 /* SMSCodeView.swift */,
 				B90810E81D854B95003735B9 /* Ship.swift */,
@@ -113,6 +121,7 @@
 			children = (
 				B943B57C1D82A5500083AB5C /* Functions.swift */,
 				B943B57F1D82A5940083AB5C /* Values.swift */,
+				B91A7C851D8782390061B7B1 /* Urls.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B935538A1D82EAFC00B33174 /* ServiceViewController.swift in Sources */,
+				B91A7C861D87823A0061B7B1 /* Urls.swift in Sources */,
 				B90810EB1D854C1E003735B9 /* TabBarController.swift in Sources */,
 				B9936CDA1D8676D60096A789 /* SMSCodeViewController.swift in Sources */,
 				B9AE5EAE1D8632BE003D9CF7 /* SignupViewController.swift in Sources */,
@@ -310,10 +320,12 @@
 				B93553841D82A9DA00B33174 /* MapViewController.swift in Sources */,
 				B99784831D82992D007FF20E /* AppDelegate.swift in Sources */,
 				B997848B1D82992E007FF20E /* zytyumin_iOS.xcdatamodeld in Sources */,
+				B91A7C8A1D8786EE0061B7B1 /* MD5.swift in Sources */,
 				B9AE5EAA1D858C2E003D9CF7 /* SlideOutAnimationController.swift in Sources */,
 				B943B5801D82A5940083AB5C /* Values.swift in Sources */,
 				B943B57D1D82A5500083AB5C /* Functions.swift in Sources */,
 				B9244C221D85856500E2809E /* DimmingPresentationController.swift in Sources */,
+				B91A7C881D8782BA0061B7B1 /* HudView.swift in Sources */,
 				B93553911D84361800B33174 /* GridView.swift in Sources */,
 				B9244C201D857F1900E2809E /* ShipInfoViewController.swift in Sources */,
 				B93553881D82DDB700B33174 /* WebViewController.swift in Sources */,

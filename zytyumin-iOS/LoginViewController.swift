@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -26,6 +28,7 @@ class LoginViewController: UIViewController {
     
     var buttonToBottom: CGFloat!
     var viewWillDisappear = false
+    var hudView: HudView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +66,7 @@ class LoginViewController: UIViewController {
             buttonToViewConstraint.constant = 22
             buttonToBottomConstraint.constant = 55
             labelToBottomContraint.constant = 20
+            buttonHeightConstraint.constant = 45
         } else if self.view.bounds.height == 480 {
             imageToTopConstraint.constant = 40 - 40
             viewToViewConstraint.constant = -3
@@ -135,6 +139,81 @@ class LoginViewController: UIViewController {
     @IBAction func forgetPasswordLabelTapped(sender: AnyObject) {
         print("forgetPasswordLabelTapped")
         performSegueWithIdentifier("smsSegue", sender: nil)
+    }
+    
+    
+    @IBAction func loginButtonTapped(sender: AnyObject) {
+        
+        let account = accountTextField.text
+        let password = passwordTextField.text
+        
+        accountTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        if account == nil || password == nil {
+            return
+        }
+        
+        hudView = HudView.hudInView(self.view, animated: false)
+        hudView.text = "登录中"
+        
+        Alamofire.request(.GET, serverIP + loginUrl, parameters: ["loginName": account!, "password": password!.MD5, "deviceType": 0, "clientId": 1]).responseJSON(completionHandler: { response in
+            switch response.result {
+            case .Success(let value):
+                self.hudView.hideAnimated(self.view, animated: true)
+                print(JSON(value))
+                let code = JSON(value)["Code"].intValue
+                if code == 0 {
+                    
+//                    let sessionKey = JSON(value)["SessionKey"].stringValue
+                    
+                    let logonUser = JSON(value)["LogonUser"]
+                    let shipsJSON: [JSON] = logonUser["Ships"].arrayValue
+                    var ships = [Ship]()
+                    for shipJSON in shipsJSON {
+                        let ship = Ship()
+                        ship.number = shipJSON["ShipNo"].stringValue
+                        ship.coor = CLLocationCoordinate2DMake(shipJSON["Latitude"].doubleValue / 600000, shipJSON["Longitude"].doubleValue / 600000)
+                        ship.name = shipJSON["ShipName"].stringValue
+                        ship.deviceInstall = shipJSON["DeviceInstall"].boolValue
+                        ships.append(ship)
+                    }
+                    
+                    //hudView
+                    self.hudView.hideAnimated(self.view, animated: false)
+                    let okView = OKView.hudInView(self.view, animated: false)
+                    okView.text = "登录成功"
+                    afterDelay(1.0){
+                        okView.hideAnimated(self.view, animated: false)
+                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveShipsData", object: ships)
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    
+                } else {
+                    //hudView
+                    self.hudView.hideAnimated(self.view, animated: false)
+                    let okView = OKView.hudInView(self.view, animated: false)
+                    if code == 2 {
+                        okView.text = "密码错误"
+                    } else if code == 1 {
+                        okView.text = "用户不存在"
+                    }
+                    okView.imagename = "error"
+                    afterDelay(1.0){
+                        okView.hideAnimated(self.view, animated: false)
+                    }
+                }
+                
+                
+                
+                
+                
+                
+            case .Failure(let error):
+                self.hudView.hideAnimated(self.view, animated: true)
+                print(error)
+            }
+        })
     }
     
 }

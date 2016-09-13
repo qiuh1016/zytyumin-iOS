@@ -53,6 +53,7 @@ class SignupViewController: UIViewController {
             buttonToViewConstraint.constant = 22
             buttonToBottomConstraint.constant = 55
             labelToBottomContraint.constant = 20
+            buttonHeightConstraint.constant = 45
         } else if self.view.bounds.height == 480 {
             buttonToViewConstraint.constant = 15
             buttonToBottomConstraint.constant = 36
