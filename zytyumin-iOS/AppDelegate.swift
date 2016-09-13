@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
@@ -62,6 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        let vc = window?.rootViewController as? TabBarController
+        if vc != nil {
+            vc?.checkUpdate()
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

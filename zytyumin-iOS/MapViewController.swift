@@ -21,9 +21,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
-        
         initMapView()
-    
     }
     
     
@@ -53,12 +51,17 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         //bMKMapView.viewWillAppear()
         bMKMapView.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
         
-        let ships = (self.tabBarController as! TabBarController).ships
-        for ship in ships {
-            coords.append(ship.coor)
-            setAnnotation(ship, type: .Point)
+        if defaults.boolForKey("hasLogin") {
+            let ships = (self.tabBarController as! TabBarController).ships
+            for ship in ships {
+                coords.append(ship.coor)
+                setAnnotation(ship, type: .Point)
+            }
+            //drawMapLine()
+        } else {
+            bMKMapView.removeAnnotations(anntations)
+            bMKMapView.removeOverlays(overlays)
         }
-        drawMapLine()
     }
     
     override func viewWillDisappear(animated: Bool) {

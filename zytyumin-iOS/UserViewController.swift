@@ -30,6 +30,10 @@ class UserViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        hasLogin = defaults.boolForKey("hasLogin")
+        loginButton.setTitle(hasLogin ? "退出" : "登陆", forState: .Normal)
+        loginButton.backgroundColor = hasLogin ? UIColor.logoutTextColor() : UIColor.mainColor()
     }
     
     func initTap() {
@@ -111,7 +115,7 @@ class UserViewController: UIViewController {
         //login Button
         loginButton = UIButton(type: .System)
         loginButton.frame = CGRectMake(10, contentView.frame.maxY + 20, viewWidth, CGFloat(lineHeight + 2))
-        loginButton.setTitle("LOG IN", forState: .Normal)
+        loginButton.setTitle("登陆", forState: .Normal)
         loginButton.layer.cornerRadius = kCornerRadii
         loginButton.layer.masksToBounds = true
         loginButton.backgroundColor = UIColor.mainColor()
@@ -135,16 +139,28 @@ class UserViewController: UIViewController {
     }
     
     func loginButtonTapped(sender: UIButton) {
-        print("login")
+    
+        if hasLogin {
+            let hudView = HudView.hudInView(self.view, animated: true)
+            hudView.text = "退出中"
+            afterDelay(1.0) {
+                hudView.hideAnimated(self.view, animated: false)
+                let okView = OKView.hudInView(self.view, animated: false)
+                okView.text = "退出成功"
+                afterDelay(0.5) {
+                    okView.hideAnimated(self.view, animated: true)
+                    NSUserDefaults.standardUserDefaults().setBool(false, forKey: "hasLogin")
+                    self.loginButton.setTitle("登陆", forState: .Normal)
+                    self.loginButton.backgroundColor = UIColor.mainColor()
+                }
+            }
+        } else {
+            let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let vc = sb.instantiateViewControllerWithIdentifier("LoginNavigationViewController")
+            presentViewController(vc, animated: true, completion: nil)
+        }
+        
         hasLogin = !hasLogin
-        loginButton.setTitle(hasLogin ? "LOG OUT" : "LOG IN", forState: .Normal)
-        loginButton.backgroundColor = hasLogin ? UIColor.logoutTextColor() : UIColor.mainColor()
-        
-        
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("LoginNavigationViewController") //as! LoginViewController
-        
-        presentViewController(vc, animated: true, completion: nil)
         
     }
     

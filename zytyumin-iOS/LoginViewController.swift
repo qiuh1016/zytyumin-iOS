@@ -57,6 +57,12 @@ class LoginViewController: UIViewController {
     }
     
     func initView() {
+        
+        let account = defaults.objectForKey("username")
+        if let acc = account {
+            accountTextField.text = acc as? String
+        }
+        
         loginButton.layer.cornerRadius = kCornerRadii
         loginButton.backgroundColor = UIColor.mainColor()
         
@@ -165,10 +171,11 @@ class LoginViewController: UIViewController {
                 let code = JSON(value)["Code"].intValue
                 if code == 0 {
                     
-//                    let sessionKey = JSON(value)["SessionKey"].stringValue
-                    
+                    let sessionKey = JSON(value)["SessionKey"].stringValue
+
                     let logonUser = JSON(value)["LogonUser"]
                     let shipsJSON: [JSON] = logonUser["Ships"].arrayValue
+                    let idCard = logonUser["IDCard"].stringValue
                     var ships = [Ship]()
                     for shipJSON in shipsJSON {
                         let ship = Ship()
@@ -178,6 +185,13 @@ class LoginViewController: UIViewController {
                         ship.deviceInstall = shipJSON["DeviceInstall"].boolValue
                         ships.append(ship)
                     }
+                    
+                    //save
+                    defaults.setBool(true, forKey: "hasLogin")
+                    defaults.setObject(sessionKey, forKey: "sessionKey")
+                    defaults.setObject(account, forKey: "username")
+                    defaults.setObject(password, forKey: "password")
+                    defaults.setObject(idCard, forKey: "IDCard")
                     
                     //hudView
                     self.hudView.hideAnimated(self.view, animated: false)

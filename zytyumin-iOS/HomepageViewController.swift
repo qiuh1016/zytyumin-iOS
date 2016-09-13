@@ -48,7 +48,6 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         initNavigationBar()
         initSDCycleScrollView()
         initGridView()
-        self.tabBarController?.tabBar.items![2].badgeValue = "1"
         
     }
     

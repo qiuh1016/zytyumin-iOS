@@ -173,7 +173,7 @@ class SMSCodeViewController: UIViewController {
         self.view.makeToast("CODE ERROR", duration: 1.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
         
         
-        UIView.animateWithDuration(1, delay: 0.5, options: .CurveEaseIn, animations: {
+        UIView.animateWithDuration(0.8, delay: 0.5, options: .CurveLinear, animations: {
             
             self.codeView1.label.alpha = 0
             self.codeView2.label.alpha = 0

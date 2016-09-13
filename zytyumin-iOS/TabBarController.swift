@@ -22,7 +22,8 @@ class TabBarController: UITabBarController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarController.didReceiveShipsData(_:)), name: "didReceiveShipsData", object: nil)
         
         checkUpdate()
-
+        
+        self.tabBar.items![2].badgeValue = "1"
     }
     
     func didReceiveShipsData(notification: NSNotification) {
