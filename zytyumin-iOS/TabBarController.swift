@@ -48,7 +48,7 @@ class TabBarController: UITabBarController {
                 let version = results[0]["version"].stringValue
                 let description = results[0]["description"].stringValue
                 if self.compareVersionsFromAppStore(version) {
-                    alertView("\(version)版本已发布", message: "更新内容:\n\(description)\n\n是否前往下载？", okActionTitle: "下载", cancleActionTitle: "取消", okHandler: okHandler, viewController: self)
+                    alertView("\(version)版本已发布", message: "更新内容:\n\(description)", okActionTitle: "升级", cancleActionTitle: "取消", okHandler: okHandler, viewController: self)
                     print("need update: serverVersion: \(version)")
                 } else{
                     print("no update: serverVersion: \(version)")

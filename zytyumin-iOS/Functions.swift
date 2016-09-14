@@ -31,7 +31,7 @@ func afterDelay(seconds: Double, closure: () -> ()) {
 func alertView(title: String, message: String, okActionTitle: String, cancleActionTitle: String, okHandler: ((action: UIAlertAction!) -> Void)?, viewController: UIViewController){
     let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
     let cancelAction = UIAlertAction(title: cancleActionTitle, style: UIAlertActionStyle.Cancel, handler: nil)
-    let okAction = UIAlertAction(title: okActionTitle, style: UIAlertActionStyle.Destructive, handler: okHandler)
+    let okAction = UIAlertAction(title: okActionTitle, style: UIAlertActionStyle.Default, handler: okHandler)
     alert.addAction(cancelAction)
     alert.addAction(okAction)
     viewController.presentViewController(alert, animated: true, completion: nil)
