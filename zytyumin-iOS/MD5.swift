@@ -11,12 +11,12 @@ import Foundation
 extension String {
     
     var MD5: String {
-        let cString = self.cStringUsingEncoding(NSUTF8StringEncoding)
+        let cString = self.cString(using: String.Encoding.utf8)
         let length = CUnsignedInt(
-            self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+            self.lengthOfBytes(using: String.Encoding.utf8)
         )
-        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(
-            Int(CC_MD5_DIGEST_LENGTH)
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(
+            capacity: Int(CC_MD5_DIGEST_LENGTH)
         )
         
         CC_MD5(cString!, length, result)

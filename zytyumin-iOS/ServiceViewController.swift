@@ -64,9 +64,9 @@ class ServiceViewController: UIViewController {
         
         //contentView
         let viewWidth = self.view.bounds.width - 20
-        let contentView = UIView(frame: CGRectMake(10, 20, viewWidth, CGFloat(lineHeight * lineNumber + lineNumber + 1)))
+        let contentView = UIView(frame: CGRect(x: 10, y: 20, width: viewWidth, height: CGFloat(lineHeight * lineNumber + lineNumber + 1)))
         contentView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentView, corners: [UIRectCorner.AllCorners], cornerRadii: kOuterCornerRadii)
+        makeRoundedCorner(contentView, corners: [UIRectCorner.allCorners], cornerRadii: kOuterCornerRadii)
         view.addSubview(contentView)
         
         if lineNumber == 0 {
@@ -76,32 +76,32 @@ class ServiceViewController: UIViewController {
         
         //lineView
         for i in 0 ... lineNumber - 1{
-            let lineView = UIView(frame: CGRectMake(1, CGFloat(lineHeight * i + i + 1), viewWidth - 2, CGFloat(lineHeight)))
-            lineView.backgroundColor = (i % 2 == 0) ? UIColor.mainLightColor() : UIColor.whiteColor()
-            lineView.userInteractionEnabled = true
+            let lineView = UIView(frame: CGRect(x: 1, y: CGFloat(lineHeight * i + i + 1), width: viewWidth - 2, height: CGFloat(lineHeight)))
+            lineView.backgroundColor = (i % 2 == 0) ? UIColor.mainLightColor() : UIColor.white
+            lineView.isUserInteractionEnabled = true
             lineView.addGestureRecognizer(taps[i])
             
             if lineNumber == 1 {
-                makeRoundedCorner(lineView, corners: [UIRectCorner.AllCorners], cornerRadii: kInnerCornerRadii)
+                makeRoundedCorner(lineView, corners: [UIRectCorner.allCorners], cornerRadii: kInnerCornerRadii)
             } else {
                 if i == lineNumber - 1 {
-                    makeRoundedCorner(lineView, corners: [UIRectCorner.BottomLeft, .BottomRight], cornerRadii: kInnerCornerRadii)
+                    makeRoundedCorner(lineView, corners: [UIRectCorner.bottomLeft, .bottomRight], cornerRadii: kInnerCornerRadii)
                 } else if i == 0 {
-                    makeRoundedCorner(lineView, corners: [UIRectCorner.TopLeft, .TopRight], cornerRadii: kInnerCornerRadii)
+                    makeRoundedCorner(lineView, corners: [UIRectCorner.topLeft, .topRight], cornerRadii: kInnerCornerRadii)
                 }
             }
             
             //text
-            let label = UILabel(frame: CGRectMake(CGFloat(space), 0, lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), CGFloat(lineHeight)))
+            let label = UILabel(frame: CGRect(x: CGFloat(space), y: 0, width: lineView.bounds.width - CGFloat(3 * space) - CGFloat(imageWidth), height: CGFloat(lineHeight)))
             label.text = lineTexts[index][i]
             label.textColor = UIColor.textColor()
             label.font = UIFont(name: textFontName, size: textSize)
-            label.backgroundColor = UIColor.clearColor()
+            label.backgroundColor = UIColor.clear
             
             //imageView
             let arrawImageView = UIImageView(image: UIImage(named: "setting_arrow_big"))
-            arrawImageView.frame = CGRectMake(lineView.bounds.width - CGFloat(space) - CGFloat(imageWidth), CGFloat((lineHeight - imageWidth) / 2), CGFloat(imageWidth), CGFloat(imageWidth))
-            arrawImageView.contentMode = .ScaleAspectFit
+            arrawImageView.frame = CGRect(x: lineView.bounds.width - CGFloat(space) - CGFloat(imageWidth), y: CGFloat((lineHeight - imageWidth) / 2), width: CGFloat(imageWidth), height: CGFloat(imageWidth))
+            arrawImageView.contentMode = .scaleAspectFit
             
             lineView.addSubview(label)
             lineView.addSubview(arrawImageView)
@@ -113,27 +113,27 @@ class ServiceViewController: UIViewController {
     }
 
     
-    func tapped1(sender: UITapGestureRecognizer) {
+    func tapped1(_ sender: UITapGestureRecognizer) {
         print("\(lineTexts[index][0])")
         
     }
     
-    func tapped2(sender: UITapGestureRecognizer) {
+    func tapped2(_ sender: UITapGestureRecognizer) {
         print("\(lineTexts[index][1])")
         
     }
     
-    func tapped3(sender: UITapGestureRecognizer) {
+    func tapped3(_ sender: UITapGestureRecognizer) {
         print("\(lineTexts[index][2])")
         
     }
     
-    func tapped4(sender: UITapGestureRecognizer) {
+    func tapped4(_ sender: UITapGestureRecognizer) {
         print("\(lineTexts[index][3])")
         
     }
     
-    func tapped5(sender: UITapGestureRecognizer) {
+    func tapped5(_ sender: UITapGestureRecognizer) {
         print("\(lineTexts[index][4])")
         
     }
