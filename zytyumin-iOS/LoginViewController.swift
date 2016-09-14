@@ -36,29 +36,29 @@ class LoginViewController: UIViewController {
         initNotification()
         initTap()
         
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.sharedApplication().statusBarStyle = .Default
 
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.view.sendSubview(toBack: (self.navigationController?.navigationBar)!)
+        self.navigationController?.view.sendSubviewToBack((self.navigationController?.navigationBar)!)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         viewWillDisappear = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         viewWillDisappear = true
     }
     
     func initView() {
         
-        let account = defaults.object(forKey: "username")
+        let account = defaults.objectForKey("username")
         if let acc = account {
             accountTextField.text = acc as? String
         }
@@ -92,8 +92,8 @@ class LoginViewController: UIViewController {
     }
     
     func initNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func initTap() {
@@ -101,16 +101,16 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
-    func keyboardWillAppear(_ notification: Notification){
+    func keyboardWillAppear(notification: NSNotification){
     
-        let keyboardInfo = (notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]
-        let keyboardHeight = (keyboardInfo as AnyObject).cgRectValue.size.height
+        let keyboardInfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
+        let keyboardHeight = keyboardInfo?.CGRectValue.size.height
         
         //加这个判断 防止在两个输入框之间切换的时候进行动画 原因不明
         if buttonToBottomConstraint.constant == buttonToBottom && !viewWillDisappear {
         
-            buttonToBottomConstraint.constant = keyboardHeight + 10
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+            buttonToBottomConstraint.constant = keyboardHeight! + 10
+            UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
                 self.view.layer.layoutIfNeeded()
                 self.imageView.alpha = 0
                 self.signupLabel.alpha = 0
@@ -119,9 +119,9 @@ class LoginViewController: UIViewController {
         
     }
     
-    func keyboardWillHide(_ notification: Notification){
+    func keyboardWillHide(notification: NSNotification){
         buttonToBottomConstraint.constant = buttonToBottom
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
             self.view.layer.layoutIfNeeded()
             self.imageView.alpha = 1
             self.signupLabel.alpha = 1
@@ -133,22 +133,22 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
     
-    @IBAction func close(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func close(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func signupLabelTapped(_ sender: AnyObject) {
+    @IBAction func signupLabelTapped(sender: AnyObject) {
         print("signupLabelTapped")
-        performSegue(withIdentifier: "signupSegue", sender: nil)
+        performSegueWithIdentifier("signupSegue", sender: nil)
     }
     
-    @IBAction func forgetPasswordLabelTapped(_ sender: AnyObject) {
+    @IBAction func forgetPasswordLabelTapped(sender: AnyObject) {
         print("forgetPasswordLabelTapped")
-        performSegue(withIdentifier: "smsSegue", sender: nil)
+        performSegueWithIdentifier("smsSegue", sender: nil)
     }
     
     
-    @IBAction func loginButtonTapped(_ sender: AnyObject) {
+    @IBAction func loginButtonTapped(sender: AnyObject) {
         
         let account = accountTextField.text
         let password = passwordTextField.text
@@ -165,7 +165,7 @@ class LoginViewController: UIViewController {
         
         Alamofire.request(.GET, serverIP + loginUrl, parameters: ["loginName": account!, "password": password!.MD5, "deviceType": 0, "clientId": 1]).responseJSON(completionHandler: { response in
             switch response.result {
-            case .success(let value):
+            case .Success(let value):
                 self.hudView.hideAnimated(self.view, animated: true)
                 print(JSON(value))
                 let code = JSON(value)["Code"].intValue
@@ -187,11 +187,11 @@ class LoginViewController: UIViewController {
                     }
                     
                     //save
-                    defaults.set(true, forKey: "hasLogin")
-                    defaults.set(sessionKey, forKey: "sessionKey")
-                    defaults.set(account, forKey: "username")
-                    defaults.set(password, forKey: "password")
-                    defaults.set(idCard, forKey: "IDCard")
+                    defaults.setBool(true, forKey: "hasLogin")
+                    defaults.setObject(sessionKey, forKey: "sessionKey")
+                    defaults.setObject(account, forKey: "username")
+                    defaults.setObject(password, forKey: "password")
+                    defaults.setObject(idCard, forKey: "IDCard")
                     
                     //hudView
                     self.hudView.hideAnimated(self.view, animated: false)
@@ -199,8 +199,8 @@ class LoginViewController: UIViewController {
                     okView.text = "登录成功"
                     afterDelay(1.0){
                         okView.hideAnimated(self.view, animated: false)
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: "didReceiveShipsData"), object: ships)
-                        self.dismiss(animated: true, completion: nil)
+                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveShipsData", object: ships)
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     }
                     
                 } else {
@@ -223,7 +223,7 @@ class LoginViewController: UIViewController {
                 
                 
                 
-            case .failure(let error):
+            case .Failure(let error):
                 self.hudView.hideAnimated(self.view, animated: true)
                 print(error)
             }
@@ -234,7 +234,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
         if textField == accountTextField {
             passwordTextField.becomeFirstResponder()
         }else if textField == passwordTextField {

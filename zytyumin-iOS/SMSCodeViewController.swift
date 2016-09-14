@@ -22,7 +22,7 @@ class SMSCodeViewController: UIViewController {
     var keyboardHeight: CGFloat = 0
     var hasDraw = false
     
-    var timer: Timer?
+    var timer: NSTimer?
     
     let smsCode = "6767"
     
@@ -30,10 +30,10 @@ class SMSCodeViewController: UIViewController {
         super.viewDidLoad()
      
         textfield.becomeFirstResponder()
-        textfield.addTarget(self, action: #selector(SMSCodeViewController.editingChanged), for: .editingChanged)
-        textfield.isHidden = true
+        textfield.addTarget(self, action: #selector(SMSCodeViewController.editingChanged), forControlEvents: .EditingChanged)
+        textfield.hidden = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
     }
     
@@ -56,38 +56,38 @@ class SMSCodeViewController: UIViewController {
             fontSize = 30
         }
         
-        headLabel = UILabel(frame: CGRect(x: 0, y: headLabelY, width: screenW, height: 40))
+        headLabel = UILabel(frame: CGRectMake(0, headLabelY, screenW, 40))
         headLabel.text = "输入短信验证码"
         headLabel.font = UIFont(name: textFontName, size: fontSize)
         headLabel.textColor = UIColor.colorFromRGB(0x999999, alpha: 1) //UIColor.mainColor()  // 
-        headLabel.textAlignment = .center
+        headLabel.textAlignment = .Center
         self.view.addSubview(headLabel)
         
-        codeView1 = SMSCodeView(frame: CGRect(x: margin                            , y: codeViewY , width: codeViewW, height: codeViewW))
-        codeView2 = SMSCodeView(frame: CGRect(x: margin + codeViewW + space        , y: codeViewY , width: codeViewW, height: codeViewW))
-        codeView3 = SMSCodeView(frame: CGRect(x: margin + codeViewW * 2 + space * 2, y: codeViewY , width: codeViewW, height: codeViewW))
-        codeView4 = SMSCodeView(frame: CGRect(x: margin + codeViewW * 3 + space * 3, y: codeViewY , width: codeViewW, height: codeViewW))
+        codeView1 = SMSCodeView(frame: CGRectMake(margin                            , codeViewY , codeViewW, codeViewW))
+        codeView2 = SMSCodeView(frame: CGRectMake(margin + codeViewW + space        , codeViewY , codeViewW, codeViewW))
+        codeView3 = SMSCodeView(frame: CGRectMake(margin + codeViewW * 2 + space * 2, codeViewY , codeViewW, codeViewW))
+        codeView4 = SMSCodeView(frame: CGRectMake(margin + codeViewW * 3 + space * 3, codeViewY , codeViewW, codeViewW))
         self.view.addSubview(codeView1)
         self.view.addSubview(codeView2)
         self.view.addSubview(codeView3)
         self.view.addSubview(codeView4)
         
         
-        resendLabel = UILabel(frame: CGRect(x: 0, y: screenH - keyboardHeight - 40, width: screenW, height: 40))
+        resendLabel = UILabel(frame: CGRectMake(0, screenH - keyboardHeight - 40, screenW, 40))
         resendLabel.text = "重新发送"
         resendLabel.font = UIFont(name: textFontName, size: 13)
         resendLabel.textColor = UIColor.colorFromRGB(0x999999, alpha: 1)
-        resendLabel.textAlignment = .center
-        resendLabel.isUserInteractionEnabled = true
+        resendLabel.textAlignment = .Center
+        resendLabel.userInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(SMSCodeViewController.resendSMS(_:)))
         resendLabel.addGestureRecognizer(tap)
     
         self.view.addSubview(resendLabel)
     }
     
-    func keyboardWillAppear(_ notification: Notification){
-        let keyboardInfo = (notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]
-        keyboardHeight = ((keyboardInfo as AnyObject).cgRectValue.size.height)
+    func keyboardWillAppear(notification: NSNotification){
+        let keyboardInfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
+        keyboardHeight = (keyboardInfo?.CGRectValue.size.height)!
         
         if !hasDraw {
             initView()
@@ -145,18 +145,18 @@ class SMSCodeViewController: UIViewController {
     }
     
     var time = 58
-    func resendSMS(_ sender: UITapGestureRecognizer) {
+    func resendSMS(sender: UITapGestureRecognizer) {
         print("resend sms")
         resendLabel.text = "59"
-        resendLabel.isUserInteractionEnabled = false
-        timer = Timer.scheduledTimer(timeInterval: 1, target:self,selector: #selector(SMSCodeViewController.tickDown), userInfo:nil, repeats: true)
+        resendLabel.userInteractionEnabled = false
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self,selector: #selector(SMSCodeViewController.tickDown), userInfo:nil, repeats: true)
     }
     
     func tickDown() {
         if (time == 0) {
             timer?.invalidate()
             resendLabel.text = "重新发送"
-            resendLabel.isUserInteractionEnabled = true
+            resendLabel.userInteractionEnabled = true
             time = 58
         } else {
             resendLabel.text = "\(time)"
@@ -173,7 +173,7 @@ class SMSCodeViewController: UIViewController {
         self.view.makeToast("CODE ERROR", duration: 1.0, position: CGPoint(x: self.view.bounds.size.width / 2.0, y: 50), style: style)
         
         
-        UIView.animate(withDuration: 0.8, delay: 0.5, options: .curveLinear, animations: {
+        UIView.animateWithDuration(0.8, delay: 0.5, options: .CurveLinear, animations: {
             
             self.codeView1.label.alpha = 0
             self.codeView2.label.alpha = 0

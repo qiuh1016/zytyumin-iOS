@@ -9,26 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 class TabBarController: UITabBarController {
     
@@ -39,23 +19,23 @@ class TabBarController: UITabBarController {
 
         self.tabBar.tintColor = UIColor.tabBarColor()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(TabBarController.didReceiveShipsData(_:)), name: NSNotification.Name(rawValue: "didReceiveShipsData"), object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarController.didReceiveShipsData(_:)), name: "didReceiveShipsData", object: nil)
         
         checkUpdate()
         
         self.tabBar.items![2].badgeValue = "1"
     }
     
-    func didReceiveShipsData(_ notification: Notification) {
+    func didReceiveShipsData(notification: NSNotification) {
         self.ships = (notification.object as? [Ship])!
     }
     
     func checkUpdate() {
         
         let okHandler = { (action: UIAlertAction!) -> Void in
-            let url = URL(string: appViewUrl)
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.openURL(url!)
+            let url = NSURL(string: appViewUrl)
+            if UIApplication.sharedApplication().canOpenURL(url!) {
+                UIApplication.sharedApplication().openURL(url!)
             } else {
                 print("cannot open app store ")
             }
@@ -63,7 +43,7 @@ class TabBarController: UITabBarController {
         
         Alamofire.request(.POST, checkUpdateUrl, parameters: ["id": 1071530431]).responseJSON { response in
             switch response.result {
-            case .success(let value):
+            case .Success(let value):
                 let results = JSON(value)["results"].arrayValue
                 let version = results[0]["version"].stringValue
                 let description = results[0]["description"].stringValue
@@ -73,22 +53,22 @@ class TabBarController: UITabBarController {
                 } else{
                     print("no update: serverVersion: \(version)")
                 }
-            case .failure(let error):
+            case .Failure(let error):
                 print("check update error: \n\(error)")
             }
         }
         
     }
     
-    func compareVersionsFromAppStore(_ AppStoreVersion: String) -> Bool {
+    func compareVersionsFromAppStore(AppStoreVersion: String) -> Bool {
         
-        let AppVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
+        let AppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
         if AppVersion == nil {
             return false
         }
         
-        var aArray = AppStoreVersion.components(separatedBy: ".")
-        var bArray = (AppVersion! as AnyObject).components(separatedBy: ".")
+        var aArray = AppStoreVersion.componentsSeparatedByString(".")
+        var bArray = AppVersion!.componentsSeparatedByString(".")
         
         while aArray.count < bArray.count { aArray.append("0") }
         while aArray.count > bArray.count { bArray.append("0") }
