@@ -57,7 +57,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
                 coords.append(ship.coor)
                 setAnnotation(ship, type: .Point)
             }
-            //drawMapLine()
+            drawMapLine()
         } else {
             bMKMapView.removeAnnotations(anntations)
             bMKMapView.removeOverlays(overlays)

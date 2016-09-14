@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
     var window: UIWindow?
     var _mapManager: BMKMapManager?
     
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -43,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
         UMessage.registerForRemoteNotifications()
         UMessage.setLogEnabled(true)
         
-        
         return true
     }
     
@@ -64,10 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        let vc = window?.rootViewController as? TabBarController
-        if vc != nil {
-            vc?.checkUpdate()
+        let current = NSDate().timeIntervalSince1970
+        let showUpdateTime = NSUserDefaults.standardUserDefaults().doubleForKey("showUpdateTime")
+        //After 1 minutes, you should enter the gesturePassword.
+        if current - showUpdateTime > 300 {
+            if let vc = window?.rootViewController as? TabBarController {
+                vc.checkUpdate()
+            }
+        } else {
+            print("上次更新对话框显示时间不到5分钟")
         }
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

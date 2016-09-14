@@ -5,7 +5,9 @@ NSUserDefaults :
 	hasLogin		boolen
 	sessionKey		String
 	IDCard			String
-	rememberPSW		boolen
+	//rememberPSW		boolen
+
+    showUpdateTime  double
 
 
 

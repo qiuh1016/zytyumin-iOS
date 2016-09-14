@@ -10,6 +10,10 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+func updateTodoNumber(number: String, item: UITabBarItem) {
+    item.badgeValue = number
+}
+
 class TabBarController: UITabBarController {
     
     var ships = [Ship]()
@@ -20,10 +24,15 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.tabBarColor()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBarController.didReceiveShipsData(_:)), name: "didReceiveShipsData", object: nil)
-        
+
         checkUpdate()
         
-        self.tabBar.items![2].badgeValue = "1"
+        updateTodoNumber("2", item: self.tabBar.items![2])
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("****appeear")
     }
     
     func didReceiveShipsData(notification: NSNotification) {
@@ -49,6 +58,8 @@ class TabBarController: UITabBarController {
                 let description = results[0]["description"].stringValue
                 if self.compareVersionsFromAppStore(version) {
                     alertView("\(version)版本已发布", message: "更新内容:\n\(description)", okActionTitle: "升级", cancleActionTitle: "取消", okHandler: okHandler, viewController: self)
+                    let showUpdateTime = NSDate().timeIntervalSince1970
+                    NSUserDefaults.standardUserDefaults().setDouble(showUpdateTime, forKey: "showUpdateTime")
                     print("need update: serverVersion: \(version)")
                 } else{
                     print("no update: serverVersion: \(version)")
