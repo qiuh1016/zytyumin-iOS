@@ -1,4 +1,4 @@
-pod 'Alamofire', '~> 3.0'
+pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'MJRefresh'
 pod 'SDCycleScrollView', '1.62'

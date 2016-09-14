@@ -12,7 +12,7 @@ PODS:
   - UMengAnalytics-NO-IDFA (4.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
+  - Alamofire
   - BaiduMapKit
   - MJRefresh
   - SDCycleScrollView (= 1.62)

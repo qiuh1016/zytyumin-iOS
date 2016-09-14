@@ -14,7 +14,8 @@ class SlideOutAnimationController: NSObject, UIViewControllerAnimatedTransitioni
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey), let containerView = transitionContext.containerView() {
+        if let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey) {
+            let containerView = transitionContext.containerView()
             let duration = transitionDuration(transitionContext)
             UIView.animateWithDuration(duration, animations: {
                 fromView.center.y -= containerView.bounds.size.height

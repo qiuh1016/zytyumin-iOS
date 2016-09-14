@@ -15,7 +15,8 @@ class BounceAnimationController: NSObject, UIViewControllerAnimatedTransitioning
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey), let toView = transitionContext.viewForKey(UITransitionContextToViewKey), let containerView = transitionContext.containerView() {
+        if let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey), let toView = transitionContext.viewForKey(UITransitionContextToViewKey){
+            let containerView = transitionContext.containerView()
             toView.frame = transitionContext.finalFrameForViewController(toViewController)
             containerView.addSubview(toView)
             toView.transform = CGAffineTransformMakeScale(0.8, 0.8)

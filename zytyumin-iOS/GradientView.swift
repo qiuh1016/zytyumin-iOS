@@ -33,6 +33,6 @@ class GradientView: UIView {
         let radius = max(x, y)
         // 4
         let context = UIGraphicsGetCurrentContext()
-        CGContextDrawRadialGradient(context, gradient, point, 0, point, radius, .DrawsAfterEndLocation)
+        CGContextDrawRadialGradient(context!, gradient!, point, 0, point, radius, .DrawsAfterEndLocation)
     }
 }
