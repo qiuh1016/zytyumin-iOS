@@ -28,6 +28,26 @@ class TabBarController: UITabBarController {
         checkUpdate()
         
         updateTodoNumber("2", item: self.tabBar.items![2])
+        
+        checkPhone()
+    }
+    
+    func checkPhone() {
+        if iPhone4() {
+            print("check phone: iPhone4\n")
+        }
+        
+        if iPhone5() {
+            print("check phone: iPhone5\n")
+        }
+        
+        if iPhone6() {
+            print("check phone: iPhone6\n")
+        }
+        
+        if iPhone6P() {
+            print("check phone: iPhone6P\n")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -12,19 +12,19 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageToTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonToViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonToBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var labelToBottomContraint: NSLayoutConstraint!
-    @IBOutlet weak var viewToViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageWidthConstraint     : NSLayoutConstraint!
+    @IBOutlet weak var imageToTopConstraint     : NSLayoutConstraint!
+    @IBOutlet weak var buttonToViewConstraint   : NSLayoutConstraint!
+    @IBOutlet weak var buttonToBottomConstraint : NSLayoutConstraint!
+    @IBOutlet weak var labelToBottomContraint   : NSLayoutConstraint!
+    @IBOutlet weak var viewToViewConstraint     : NSLayoutConstraint!
+    @IBOutlet weak var buttonHeightConstraint   : NSLayoutConstraint!
     
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var accountTextField: UITextField!
+    @IBOutlet weak var loginButton      : UIButton!
+    @IBOutlet weak var imageView        : UIImageView!
+    @IBOutlet weak var accountTextField : UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signupLabel: UILabel!
+    @IBOutlet weak var signupLabel      : UILabel!
     
     var buttonToBottom: CGFloat!
     var viewWillDisappear = false
@@ -67,26 +67,26 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = UIColor.mainColor()
         
         if self.view.bounds.height == 568 {
-            imageToTopConstraint.constant = 80 - 64
-            viewToViewConstraint.constant = -3
-            buttonToViewConstraint.constant = 22
+            imageToTopConstraint    .constant = 80 - 64
+            viewToViewConstraint    .constant = -3
+            buttonToViewConstraint  .constant = 22
             buttonToBottomConstraint.constant = 55
-            labelToBottomContraint.constant = 20
-            buttonHeightConstraint.constant = 45
+            labelToBottomContraint  .constant = 20
+            buttonHeightConstraint  .constant = 45
         } else if self.view.bounds.height == 480 {
-            imageToTopConstraint.constant = 40 - 40
-            viewToViewConstraint.constant = -3
-            buttonToViewConstraint.constant = 15
+            imageToTopConstraint    .constant = 40 - 40
+            viewToViewConstraint    .constant = -3
+            buttonToViewConstraint  .constant = 15
             buttonToBottomConstraint.constant = 36
-            labelToBottomContraint.constant = 10
-            buttonHeightConstraint.constant = 45
+            labelToBottomContraint  .constant = 10
+            buttonHeightConstraint  .constant = 45
         } else if self.view.bounds.height == 736 {
-            imageWidthConstraint.constant = 180
+            imageWidthConstraint    .constant = 180
         }
         self.view.layer.layoutIfNeeded()
         buttonToBottom = buttonToBottomConstraint.constant
         
-        accountTextField.delegate = self
+        accountTextField .delegate = self
         passwordTextField.delegate = self
         
     }

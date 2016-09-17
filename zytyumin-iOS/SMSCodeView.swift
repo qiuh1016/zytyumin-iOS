@@ -13,6 +13,12 @@ class SMSCodeView: UIView {
     
     var label : UILabel!
     
+    var text = "" {
+        didSet {
+            label.text = text
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
@@ -25,7 +31,7 @@ class SMSCodeView: UIView {
     override func drawRect(rect: CGRect) {
         
         label = UILabel(frame: CGRectMake(0, 0, rect.width, 30))
-        label.text = ""
+        label.text = text
         label.font = UIFont(name: smsCodeFontName, size: 32)
         label.textColor = UIColor.mainColor() // UIColor.colorFromRGB(0x666666, alpha: 1)
         label.textAlignment = .Center

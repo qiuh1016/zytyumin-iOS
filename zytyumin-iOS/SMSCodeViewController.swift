@@ -100,34 +100,34 @@ class SMSCodeViewController: UIViewController {
         let str = textfield.text!
         
         if str == "" {
-            codeView1.label.text = ""
-            codeView2.label.text = ""
-            codeView3.label.text = ""
-            codeView4.label.text = ""
+            codeView1.text = ""
+            codeView2.text = ""
+            codeView3.text = ""
+            codeView4.text = ""
             return
         }
         
         switch (str as NSString).length {
         case 1:
-            codeView1.label.text = str
-            codeView2.label.text = ""
-            codeView3.label.text = ""
-            codeView4.label.text = ""
+            codeView1.text = str
+            codeView2.text = ""
+            codeView3.text = ""
+            codeView4.text = ""
         case 2:
-            codeView1.label.text = str[0 ..< 1]
-            codeView2.label.text = str[1 ..< 2]
-            codeView3.label.text = ""
-            codeView4.label.text = ""
+            codeView1.text = str[0 ..< 1]
+            codeView2.text = str[1 ..< 2]
+            codeView3.text = ""
+            codeView4.text = ""
         case 3:
-            codeView1.label.text = str[0 ..< 1]
-            codeView2.label.text = str[1 ..< 2]
-            codeView3.label.text = str[2 ..< 3]
-            codeView4.label.text = ""
+            codeView1.text = str[0 ..< 1]
+            codeView2.text = str[1 ..< 2]
+            codeView3.text = str[2 ..< 3]
+            codeView4.text = ""
         case 4:
-            codeView1.label.text = str[0 ..< 1]
-            codeView2.label.text = str[1 ..< 2]
-            codeView3.label.text = str[2 ..< 3]
-            codeView4.label.text = str[3 ..< 4]
+            codeView1.text = str[0 ..< 1]
+            codeView2.text = str[1 ..< 2]
+            codeView3.text = str[2 ..< 3]
+            codeView4.text = str[3 ..< 4]
             
             if str == smsCode {
                 print("smsCode correct")
@@ -182,10 +182,10 @@ class SMSCodeViewController: UIViewController {
             
             }, completion: { _ in
                 self.textfield.text = ""
-                self.codeView1.label.text = ""
-                self.codeView2.label.text = ""
-                self.codeView3.label.text = ""
-                self.codeView4.label.text = ""
+                self.codeView1.text = ""
+                self.codeView2.text = ""
+                self.codeView3.text = ""
+                self.codeView4.text = ""
                 
                 self.codeView1.label.alpha = 1
                 self.codeView2.label.alpha = 1

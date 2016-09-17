@@ -126,3 +126,30 @@ func makeRoundedCorner(view: UIView, corners: UIRectCorner, cornerRadii: CGSize)
     maskLayer.path = maskPath.CGPath
     view.layer.mask = maskLayer
 }
+
+func iPhone4() -> Bool {
+    let height = UIScreen.mainScreen().bounds.size.height
+    return height == 480
+}
+
+func iPhone5() -> Bool {
+    let height = UIScreen.mainScreen().bounds.size.height
+    return height == 568
+}
+
+func iPhone6() -> Bool {
+    let height = UIScreen.mainScreen().bounds.size.height
+    return height == 667
+}
+
+func iPhone6P() -> Bool {
+    let height = UIScreen.mainScreen().bounds.size.height
+    return height == 736
+}
+
+enum iPhoneType : Int{
+    case iPhone4 = 480
+    case iPhone5 = 568
+    case iPhone6 = 667
+    case iPhone6P = 736
+}
