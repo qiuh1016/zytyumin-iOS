@@ -10,25 +10,25 @@ import UIKit
 
 class BounceAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey), let toView = transitionContext.viewForKey(UITransitionContextToViewKey){
-            let containerView = transitionContext.containerView()
-            toView.frame = transitionContext.finalFrameForViewController(toViewController)
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = transitionContext.view(forKey: UITransitionContextViewKey.to){
+            let containerView = transitionContext.containerView
+            toView.frame = transitionContext.finalFrame(for: toViewController)
             containerView.addSubview(toView)
-            toView.transform = CGAffineTransformMakeScale(0.8, 0.8)
-            UIView.animateKeyframesWithDuration(transitionDuration(transitionContext), delay: 0, options: .CalculationModeCubic, animations: {
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.334, animations: {
-                    toView.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            toView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            UIView.animateKeyframes(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .calculationModeCubic, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.334, animations: {
+                    toView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 })
-                UIView.addKeyframeWithRelativeStartTime(0.334, relativeDuration: 0.333, animations: {
-                    toView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+                UIView.addKeyframe(withRelativeStartTime: 0.334, relativeDuration: 0.333, animations: {
+                    toView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 })
-                UIView.addKeyframeWithRelativeStartTime(0.666, relativeDuration: 0.333, animations: {
-                    toView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                UIView.addKeyframe(withRelativeStartTime: 0.666, relativeDuration: 0.333, animations: {
+                    toView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 })
             }, completion: { finished in
                 transitionContext.completeTransition(finished)

@@ -16,7 +16,7 @@ let kOuterCornerRadii = CGSize(width: 5, height: 5)
 let textFontName = "Helvetica Neue"
 let smsCodeFontName = "ArialMT"
 
-let defaults = NSUserDefaults.standardUserDefaults()
+let defaults = Foundation.UserDefaults.standard
 
 extension UIColor {
     class func mainColor() -> UIColor {

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
+//import Alamofire
+//import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -36,29 +36,29 @@ class LoginViewController: UIViewController {
         initNotification()
         initTap()
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.shared.statusBarStyle = .default
 
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.view.sendSubviewToBack((self.navigationController?.navigationBar)!)
+        self.navigationController?.view.sendSubview(toBack: (self.navigationController?.navigationBar)!)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewWillDisappear = false
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewWillDisappear = true
     }
     
     func initView() {
         
-        let account = defaults.objectForKey("username")
+        let account = defaults.object(forKey: "username")
         if let acc = account {
             accountTextField.text = acc as? String
         }
@@ -92,8 +92,8 @@ class LoginViewController: UIViewController {
     }
     
     func initNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func initTap() {
@@ -101,16 +101,16 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
-    func keyboardWillAppear(notification: NSNotification){
+    func keyboardWillAppear(_ notification: Notification){
     
-        let keyboardInfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
-        let keyboardHeight = keyboardInfo?.CGRectValue.size.height
+        let keyboardInfo = (notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]
+        let keyboardHeight = (keyboardInfo as AnyObject).cgRectValue.size.height
         
         //加这个判断 防止在两个输入框之间切换的时候进行动画 原因不明
         if buttonToBottomConstraint.constant == buttonToBottom && !viewWillDisappear {
         
-            buttonToBottomConstraint.constant = keyboardHeight! + 10
-            UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+            buttonToBottomConstraint.constant = keyboardHeight + 10
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
                 self.view.layer.layoutIfNeeded()
                 self.imageView.alpha = 0
                 self.signupLabel.alpha = 0
@@ -119,9 +119,9 @@ class LoginViewController: UIViewController {
         
     }
     
-    func keyboardWillHide(notification: NSNotification){
+    func keyboardWillHide(_ notification: Notification){
         buttonToBottomConstraint.constant = buttonToBottom
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             self.view.layer.layoutIfNeeded()
             self.imageView.alpha = 1
             self.signupLabel.alpha = 1
@@ -133,22 +133,22 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
     
-    @IBAction func close(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func signupLabelTapped(sender: AnyObject) {
+    @IBAction func signupLabelTapped(_ sender: AnyObject) {
         print("signupLabelTapped")
-        performSegueWithIdentifier("signupSegue", sender: nil)
+        performSegue(withIdentifier: "signupSegue", sender: nil)
     }
     
-    @IBAction func forgetPasswordLabelTapped(sender: AnyObject) {
+    @IBAction func forgetPasswordLabelTapped(_ sender: AnyObject) {
         print("forgetPasswordLabelTapped")
-        performSegueWithIdentifier("smsSegue", sender: nil)
+        performSegue(withIdentifier: "smsSegue", sender: nil)
     }
     
     
-    @IBAction func loginButtonTapped(sender: AnyObject) {
+    @IBAction func loginButtonTapped(_ sender: AnyObject) {
         
         let account = accountTextField.text
         let password = passwordTextField.text
@@ -163,78 +163,78 @@ class LoginViewController: UIViewController {
         hudView = HudView.hudInView(self.view, animated: false)
         hudView.text = "登录中"
         
-        Alamofire.request(.GET, serverIP + loginUrl, parameters: ["loginName": account!, "password": password!.MD5, "deviceType": 0, "clientId": 1]).responseJSON(completionHandler: { response in
-            switch response.result {
-            case .Success(let value):
-                self.hudView.hideAnimated(self.view, animated: true)
-                print(JSON(value))
-                let code = JSON(value)["Code"].intValue
-                if code == 0 {
-                    
-                    let sessionKey = JSON(value)["SessionKey"].stringValue
-
-                    let logonUser = JSON(value)["LogonUser"]
-                    let shipsJSON: [JSON] = logonUser["Ships"].arrayValue
-                    let idCard = logonUser["IDCard"].stringValue
-                    var ships = [Ship]()
-                    for shipJSON in shipsJSON {
-                        let ship = Ship()
-                        ship.number = shipJSON["ShipNo"].stringValue
-                        ship.coor = CLLocationCoordinate2DMake(shipJSON["Latitude"].doubleValue / 600000, shipJSON["Longitude"].doubleValue / 600000)
-                        ship.name = shipJSON["ShipName"].stringValue
-                        ship.deviceInstall = shipJSON["DeviceInstall"].boolValue
-                        ships.append(ship)
-                    }
-                    
-                    //save
-                    defaults.setBool(true, forKey: "hasLogin")
-                    defaults.setObject(sessionKey, forKey: "sessionKey")
-                    defaults.setObject(account, forKey: "username")
-                    defaults.setObject(password, forKey: "password")
-                    defaults.setObject(idCard, forKey: "IDCard")
-                    
-                    //hudView
-                    self.hudView.hideAnimated(self.view, animated: false)
-                    let okView = OKView.hudInView(self.view, animated: false)
-                    okView.text = "登录成功"
-                    afterDelay(1.0){
-                        okView.hideAnimated(self.view, animated: false)
-                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveShipsData", object: ships)
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    }
-                    
-                } else {
-                    //hudView
-                    self.hudView.hideAnimated(self.view, animated: false)
-                    let okView = OKView.hudInView(self.view, animated: false)
-                    if code == 2 {
-                        okView.text = "密码错误"
-                    } else if code == 1 {
-                        okView.text = "用户不存在"
-                    }
-                    okView.imagename = "error"
-                    afterDelay(1.0){
-                        okView.hideAnimated(self.view, animated: false)
-                    }
-                }
-                
-                
-                
-                
-                
-                
-            case .Failure(let error):
-                self.hudView.hideAnimated(self.view, animated: true)
-                print(error)
-            }
-        })
+//        Alamofire.request(.GET, serverIP + loginUrl, parameters: ["loginName": account!, "password": password!.MD5, "deviceType": 0, "clientId": 1]).responseJSON(completionHandler: { response in
+//            switch response.result {
+//            case .Success(let value):
+//                self.hudView.hideAnimated(self.view, animated: true)
+//                print(JSON(value))
+//                let code = JSON(value)["Code"].intValue
+//                if code == 0 {
+//                    
+//                    let sessionKey = JSON(value)["SessionKey"].stringValue
+//
+//                    let logonUser = JSON(value)["LogonUser"]
+//                    let shipsJSON: [JSON] = logonUser["Ships"].arrayValue
+//                    let idCard = logonUser["IDCard"].stringValue
+//                    var ships = [Ship]()
+//                    for shipJSON in shipsJSON {
+//                        let ship = Ship()
+//                        ship.number = shipJSON["ShipNo"].stringValue
+//                        ship.coor = CLLocationCoordinate2DMake(shipJSON["Latitude"].doubleValue / 600000, shipJSON["Longitude"].doubleValue / 600000)
+//                        ship.name = shipJSON["ShipName"].stringValue
+//                        ship.deviceInstall = shipJSON["DeviceInstall"].boolValue
+//                        ships.append(ship)
+//                    }
+//                    
+//                    //save
+//                    defaults.setBool(true, forKey: "hasLogin")
+//                    defaults.setObject(sessionKey, forKey: "sessionKey")
+//                    defaults.setObject(account, forKey: "username")
+//                    defaults.setObject(password, forKey: "password")
+//                    defaults.setObject(idCard, forKey: "IDCard")
+//                    
+//                    //hudView
+//                    self.hudView.hideAnimated(self.view, animated: false)
+//                    let okView = OKView.hudInView(self.view, animated: false)
+//                    okView.text = "登录成功"
+//                    afterDelay(1.0){
+//                        okView.hideAnimated(self.view, animated: false)
+//                        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveShipsData", object: ships)
+//                        self.dismissViewControllerAnimated(true, completion: nil)
+//                    }
+//                    
+//                } else {
+//                    //hudView
+//                    self.hudView.hideAnimated(self.view, animated: false)
+//                    let okView = OKView.hudInView(self.view, animated: false)
+//                    if code == 2 {
+//                        okView.text = "密码错误"
+//                    } else if code == 1 {
+//                        okView.text = "用户不存在"
+//                    }
+//                    okView.imagename = "error"
+//                    afterDelay(1.0){
+//                        okView.hideAnimated(self.view, animated: false)
+//                    }
+//                }
+//                
+//                
+//                
+//                
+//                
+//                
+//            case .Failure(let error):
+//                self.hudView.hideAnimated(self.view, animated: true)
+//                print(error)
+//            }
+//        })
     }
     
 }
 
 extension LoginViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         if textField == accountTextField {
             passwordTextField.becomeFirstResponder()
         }else if textField == passwordTextField {

@@ -27,16 +27,16 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     
     func initNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
-        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     func initMapView() {
         bMKMapView = BMKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 64 - 49))
         bMKMapView.showMapScaleBar = true
-        bMKMapView.rotateEnabled = false //关闭旋转
-        bMKMapView.overlookEnabled = false //关闭俯视
+        bMKMapView.isRotateEnabled = false //关闭旋转
+        bMKMapView.isOverlookEnabled = false //关闭俯视
         bMKMapView.delegate = self
         self.view.addSubview(bMKMapView!)
         
@@ -46,16 +46,16 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         bMKMapView.setMapStatus(mapStatus)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //bMKMapView.viewWillAppear()
         bMKMapView.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
         
-        if defaults.boolForKey("hasLogin") {
+        if defaults.bool(forKey: "hasLogin") {
             let ships = (self.tabBarController as! TabBarController).ships
             for ship in ships {
                 coords.append(ship.coor)
-                setAnnotation(ship, type: .Point)
+                setAnnotation(ship, type: .point)
             }
             drawMapLine()
         } else {
@@ -64,7 +64,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         //bMKMapView.viewWillDisappear()
         bMKMapView.delegate = nil // 不用时，置nil
@@ -74,7 +74,7 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     }
 
     
-    func setAnnotation(ship: Ship, type: MyAnnotationType) {
+    func setAnnotation(_ ship: Ship, type: MyAnnotationType) {
         let annotation = MyAnnotation()
         annotation.title = ship.name
         annotation.subtitle = ship.number
@@ -86,26 +86,26 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     
     func drawMapLine() {
         polyline = BMKPolyline(coordinates: &coords, count: UInt(coords.count))
-        bMKMapView.addOverlay(polyline)
+        bMKMapView.add(polyline)
         overlays.append(polyline!)
     }
     
-    func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
+    func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         
-        if annotation.isKindOfClass(MyAnnotation) {
-            var view = mapView.dequeueReusableAnnotationViewWithIdentifier("point");
+        if annotation.isKind(of: MyAnnotation.self) {
+            var view = mapView.dequeueReusableAnnotationView(withIdentifier: "point");
             view = BMKAnnotationView(annotation: annotation, reuseIdentifier: "point");
             let myAnnotation = annotation as! MyAnnotation
             switch myAnnotation.type {
-            case .Start:
-                view.image = UIImage(named: "map_icon_start");
-            case .End:
-                view.image = UIImage(named: "map_icon_end");
-            case .Point:
-                view.image = UIImage(named: "map_icon_point");
+            case .start:
+                view?.image = UIImage(named: "map_icon_start");
+            case .end:
+                view?.image = UIImage(named: "map_icon_end");
+            case .point:
+                view?.image = UIImage(named: "map_icon_point");
             }
-            view.centerOffset = CGPointMake(0, -(view!.frame.size.height * 0.5));
-            view.canShowCallout = true;
+            view?.centerOffset = CGPoint(x: 0, y: -(view!.frame.size.height * 0.5));
+            view?.canShowCallout = true;
             return view
         }
         
@@ -113,16 +113,16 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     
     }
     
-    func mapView(mapView: BMKMapView!, didSelectAnnotationView view: BMKAnnotationView!) {
+    func mapView(_ mapView: BMKMapView!, didSelect view: BMKAnnotationView!) {
         print(view.annotation.title!())
     }
     
-    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+    func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if let overlayTemp = overlay as? BMKPolyline {
             let polylineView = BMKPolylineView(overlay: overlay)
             if overlayTemp == polyline {
-                polylineView.strokeColor = UIColor.mainColor()
-                polylineView.lineWidth = 2
+                polylineView?.strokeColor = UIColor.mainColor()
+                polylineView?.lineWidth = 2
             }
             return polylineView
         }
@@ -131,12 +131,12 @@ class MapViewController: UIViewController, BMKMapViewDelegate {
     }
 
     
-    func mapView(mapView: BMKMapView!, annotationViewForBubble view: BMKAnnotationView!) {
+    func mapView(_ mapView: BMKMapView!, annotationViewForBubble view: BMKAnnotationView!) {
         print("\(view.annotation.title!())")
         
-        let sb = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc = sb.instantiateViewControllerWithIdentifier("ShipInfoViewController")
-        self.presentViewController(vc, animated: true, completion: nil)
+        let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = sb.instantiateViewController(withIdentifier: "ShipInfoViewController")
+        self.present(vc, animated: true, completion: nil)
         
     }
 }
