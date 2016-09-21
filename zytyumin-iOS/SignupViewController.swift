@@ -39,8 +39,8 @@ class SignupViewController: UIViewController {
         initNotification()
     }
     
-    @IBAction func back(_ sender: AnyObject) {
-        self.navigationController?.popToRootViewController(animated: true)
+    @IBAction func back(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func initView() {
@@ -80,21 +80,21 @@ class SignupViewController: UIViewController {
     }
     
     func initNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(SignupViewController.keyboardWillAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SignupViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignupViewController.keyboardWillAppear(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignupViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func keyboardWillAppear(_ notification: Notification){
+    func keyboardWillAppear(notification: NSNotification){
         
-        let keyboardInfo = (notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]
-        let keyboardHeight = (keyboardInfo as AnyObject).cgRectValue.size.height
+        let keyboardInfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
+        let keyboardHeight = keyboardInfo?.CGRectValue.size.height
         
-        if (nameTextField.isFirstResponder || idTextField.isFirstResponder || emailTextField.isFirstResponder) {
+        if (nameTextField.isFirstResponder() || idTextField.isFirstResponder() || emailTextField.isFirstResponder()) {
             //加这个判断 防止在两个输入框之间切换的时候进行动画 原因不明
             if buttonToBottomConstraint.constant == buttonToBottom {
                 
-                buttonToBottomConstraint.constant = keyboardHeight + 10
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+                buttonToBottomConstraint.constant = keyboardHeight! + 10
+                UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
                     self.view.layer.layoutIfNeeded()
                     }, completion: nil)
             }
@@ -102,9 +102,9 @@ class SignupViewController: UIViewController {
         
     }
     
-    func keyboardWillHide(_ notification: Notification){
+    func keyboardWillHide(notification: NSNotification){
         buttonToBottomConstraint.constant = buttonToBottom
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
             self.view.layer.layoutIfNeeded()
             }, completion: nil)
     }
@@ -119,10 +119,10 @@ class SignupViewController: UIViewController {
         emailTextField.resignFirstResponder()
     }
     
-    @IBAction func switchButtonTapped(_ sender: AnyObject) {
+    @IBAction func switchButtonTapped(sender: AnyObject) {
         nameLabel.text = isPersonalAccount ? "企业名称" : "姓名"
         idLabel.text = isPersonalAccount ? "企业编号" : "身份证"
-        switchButton.setTitle(isPersonalAccount ? "个人账号注册" : "企业账号注册", for: UIControlState())
+        switchButton.setTitle(isPersonalAccount ? "个人账号注册" : "企业账号注册", forState: .Normal)
         isPersonalAccount = !isPersonalAccount
         
         nameTextField.text = ""
@@ -134,7 +134,7 @@ class SignupViewController: UIViewController {
 
 extension SignupViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
         if textField == accountTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {

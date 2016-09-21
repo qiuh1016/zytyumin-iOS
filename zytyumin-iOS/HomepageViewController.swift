@@ -51,21 +51,21 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func initNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
         self.navigationController?.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.white] //, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.isTranslucent = false
+            [NSForegroundColorAttributeName: UIColor.whiteColor()] //, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func initSDCycleScrollView() {
-        cycleScrollView = SDCycleScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width * 200 / 375), delegate: self, placeholderImage: UIImage(named: "SDCycleViewDefaultImage"))
+        cycleScrollView = SDCycleScrollView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.width * 200 / 375), delegate: self, placeholderImage: UIImage(named: "SDCycleViewDefaultImage"))
         cycleScrollView.imageURLStringsGroup = imageUrls
         cycleScrollView.titlesGroup = imageTitles
         cycleScrollView.autoScrollTimeInterval = 8
@@ -80,77 +80,77 @@ class HomepageViewController: UIViewController, SDCycleScrollViewDelegate {
         }
         let viewWidth = (view.bounds.width - 2 * kGridViewMargin - 4) / 3
         
-        let contentGridView = UIView(frame: CGRect(x: kGridViewMargin, y: cycleScrollView.bounds.height + 0 + kGridViewMargin * 2, width: viewWidth * 3 + 4, height: viewWidth * 2 + 3))
+        let contentGridView = UIView(frame: CGRectMake(kGridViewMargin, cycleScrollView.bounds.height + 0 + kGridViewMargin * 2, viewWidth * 3 + 4, viewWidth * 2 + 3))
         contentGridView.backgroundColor = UIColor.spaceLineColor()
-        makeRoundedCorner(contentGridView, corners: .allCorners, cornerRadii: kOuterCornerRadii)
+        makeRoundedCorner(contentGridView, corners: .AllCorners, cornerRadii: kOuterCornerRadii)
         if self.view.frame.height == 480 {
             contentGridView.center.y -= 35
         }
         self.view.addSubview(contentGridView)
         
-        let serverGridView = GridView(frame: CGRect(x: 1, y: 1, width: viewWidth, height: viewWidth))
+        let serverGridView = GridView(frame: CGRectMake(1, 1, viewWidth, viewWidth))
         serverGridView.image = UIImage(named: "homepage_service")
         serverGridView.text = titles[0]
         serverGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 0)
+            self.performSegueWithIdentifier("serviceSegue", sender: 0)
         }
-        makeRoundedCorner(serverGridView, corners: .topLeft, cornerRadii: kInnerCornerRadii)
+        makeRoundedCorner(serverGridView, corners: .TopLeft, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(serverGridView)
         
-        let recordGridView = GridView(frame: CGRect(x: 2 + viewWidth, y: 1, width: viewWidth, height: viewWidth))
+        let recordGridView = GridView(frame: CGRectMake(2 + viewWidth, 1, viewWidth, viewWidth))
         recordGridView.image = UIImage(named: "homepage_record")
         recordGridView.text = titles[1]
         recordGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 1)
+            self.performSegueWithIdentifier("serviceSegue", sender: 1)
         }
         contentGridView.addSubview(recordGridView)
         
-        let visaGridView = GridView(frame: CGRect(x: 3 + 2 * viewWidth, y: 1, width: viewWidth, height: viewWidth))
+        let visaGridView = GridView(frame: CGRectMake(3 + 2 * viewWidth, 1, viewWidth, viewWidth))
         visaGridView.image = UIImage(named: "homepage_visa")
         visaGridView.text = titles[2]
         visaGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 2)
+            self.performSegueWithIdentifier("serviceSegue", sender: 2)
         }
-        makeRoundedCorner(visaGridView, corners: .topRight, cornerRadii: kInnerCornerRadii)
+        makeRoundedCorner(visaGridView, corners: .TopRight, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(visaGridView)
         
-        let lawGridView = GridView(frame: CGRect(x: 1, y: 2 + viewWidth, width: viewWidth, height: viewWidth))
+        let lawGridView = GridView(frame: CGRectMake(1, 2 + viewWidth, viewWidth, viewWidth))
         lawGridView.image = UIImage(named: "homepage_law")
         lawGridView.text = titles[3]
         lawGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 3)
+            self.performSegueWithIdentifier("serviceSegue", sender: 3)
         }
-        makeRoundedCorner(lawGridView, corners: .bottomLeft, cornerRadii: kInnerCornerRadii)
+        makeRoundedCorner(lawGridView, corners: .BottomLeft, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(lawGridView)
         
-        let processGridView = GridView(frame: CGRect(x: 2 + viewWidth, y: 2 + viewWidth, width: viewWidth, height: viewWidth))
+        let processGridView = GridView(frame: CGRectMake(2 + viewWidth, 2 + viewWidth, viewWidth, viewWidth))
         processGridView.image = UIImage(named: "homepage_process")
         processGridView.text = titles[4]
         processGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 4)
+            self.performSegueWithIdentifier("serviceSegue", sender: 4)
         }
         contentGridView.addSubview(processGridView)
         
-        let todoGridView = GridView(frame: CGRect(x: 3 + 2 * viewWidth, y: 2 + viewWidth, width: viewWidth, height: viewWidth))
+        let todoGridView = GridView(frame: CGRectMake(3 + 2 * viewWidth, 2 + viewWidth, viewWidth, viewWidth))
         todoGridView.image = UIImage(named: "homepage_service")
         todoGridView.text = titles[5]
         todoGridView.clickCallBack = { () -> () in
-            self.performSegue(withIdentifier: "serviceSegue", sender: 5)
+            self.performSegueWithIdentifier("serviceSegue", sender: 5)
         }
-        makeRoundedCorner(todoGridView, corners: .bottomRight, cornerRadii: kInnerCornerRadii)
+        makeRoundedCorner(todoGridView, corners: .BottomRight, cornerRadii: kInnerCornerRadii)
         contentGridView.addSubview(todoGridView)
     }
     
-    func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
+    func cycleScrollView(cycleScrollView: SDCycleScrollView!, didSelectItemAtIndex index: Int) {
         let vc = WebViewController()
         vc.urlString = imageWebUrls[index]
         vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.show(vc, sender: nil)
+        self.navigationController?.showViewController(vc, sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "serviceSegue") {
-            let vc = segue.destination as! ServiceViewController
+            let vc = segue.destinationViewController as! ServiceViewController
             vc.index = sender as! Int
         }
     }

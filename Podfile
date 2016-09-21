@@ -1,10 +1,8 @@
-platform :ios, '9.0'
-target :'zytyumin-iOS' do
-    pod 'Alamofire'
-    pod 'SwiftyJSON', :git => 'https://github.com/appsailor/SwiftyJSON.git', :branch => 'swift3'
-	pod 'MJRefresh'
-	pod 'SDCycleScrollView', '1.62'
-	pod 'BaiduMapKit'
-	pod 'UMengAnalytics-NO-IDFA'
-	use_frameworks!
-end
+pod 'Alamofire'
+pod 'SwiftyJSON'
+pod 'MJRefresh'
+pod 'SDCycleScrollView', '1.62'
+pod 'BaiduMapKit'
+pod 'Toast-Swift', '~> 1.4.0'
+pod 'UMengAnalytics-NO-IDFA'
+use_frameworks!

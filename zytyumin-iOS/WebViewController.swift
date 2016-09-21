@@ -24,37 +24,37 @@ class WebViewController: UIViewController {
     }
     
     func initWKWebView() {
-        wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        wkWebView = WKWebView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         self.view.addSubview(wkWebView)
-        wkWebView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        wkWebView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
     }
     
     func initProgressView() {
-        progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 5))
-        progressView.backgroundColor = UIColor.clear
+        progressView = UIProgressView(frame: CGRectMake(0, 0, self.view.bounds.width, 5))
+        progressView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(progressView)
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let keyPath = keyPath , keyPath == "estimatedProgress" {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if let keyPath = keyPath where keyPath == "estimatedProgress" {
             if wkWebView.estimatedProgress == 1 {
-                progressView.isHidden = true
+                progressView.hidden = true
             } else {
-                progressView.isHidden = false
+                progressView.hidden = false
                 progressView.setProgress(Float(wkWebView.estimatedProgress), animated: true)
             }
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         wkWebView.removeObserver(self, forKeyPath: "estimatedProgress")
     }
     
-    func loadURL(_ url: String) {
-        let url = URL(string: url)
-        let urlRequest = URLRequest(url: url!)
-        wkWebView.load(urlRequest)
+    func loadURL(url: String) {
+        let url = NSURL(string: url)
+        let urlRequest = NSURLRequest(URL: url!)
+        wkWebView.loadRequest(urlRequest)
     }
     
 }

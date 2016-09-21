@@ -21,24 +21,24 @@ class SMSCodeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clearColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func draw(_ rect: CGRect) {
+    override func drawRect(rect: CGRect) {
         
-        label = UILabel(frame: CGRect(x: 0, y: 0, width: rect.width, height: 30))
+        label = UILabel(frame: CGRectMake(0, 0, rect.width, 30))
         label.text = text
         label.font = UIFont(name: smsCodeFontName, size: 32)
         label.textColor = UIColor.mainColor() // UIColor.colorFromRGB(0x666666, alpha: 1)
-        label.textAlignment = .center
+        label.textAlignment = .Center
         self.addSubview(label)
         
         
-        let lineView = UIView(frame: CGRect(x: 5, y: 42, width: rect.width - 10, height: 1))
+        let lineView = UIView(frame: CGRectMake(5, 42, rect.width - 10, 1))
         lineView.backgroundColor = UIColor.colorFromRGB(0x999999, alpha: 1)
         self.addSubview(lineView)
         

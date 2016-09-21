@@ -29,7 +29,7 @@ class ShipInfoViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        modalPresentationStyle = .custom
+        modalPresentationStyle = .Custom
         transitioningDelegate = self
     }
     
@@ -48,34 +48,34 @@ class ShipInfoViewController: UIViewController {
         detailButton.backgroundColor = UIColor.mainColor()
     }
     
-    @IBAction func close(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func close(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func routeButtonTapped(_ sender: AnyObject) {
+    @IBAction func routeButtonTapped(sender: AnyObject) {
         print("routeButtonTapped")
     }
-    @IBAction func detailButtonTapped(_ sender: AnyObject) {
+    @IBAction func detailButtonTapped(sender: AnyObject) {
         print("detailButtonTapped")
     }
     
 }
 
 extension ShipInfoViewController: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController?, sourceViewController source: UIViewController) -> UIPresentationController? {
+        return DimmingPresentationController(presentedViewController: presented, presentingViewController: presenting)
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return BounceAnimationController()
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SlideOutAnimationController()
     }
 }
 
 extension ShipInfoViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         return (touch.view === self.view)
     }
 }

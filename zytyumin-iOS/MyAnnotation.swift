@@ -9,14 +9,14 @@
 import Foundation
 
 enum MyAnnotationType {
-    case start
-    case end
-    case point
+    case Start
+    case End
+    case Point
 }
 
 class MyAnnotation: BMKPointAnnotation {
     
-    var type: MyAnnotationType = .point
+    var type: MyAnnotationType = .Point
     var index: Int?
     
 }
