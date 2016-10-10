@@ -20,8 +20,8 @@ class GridView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.whiteColor()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(GridView.click(_:)))
+        self.backgroundColor = UIColor.white
+        let tap = UITapGestureRecognizer(target: self, action: #selector(GridView.click(sender:)))
         self.addGestureRecognizer(tap)
     }
     
@@ -29,19 +29,19 @@ class GridView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        let imageView = UIImageView(frame: CGRectMake(margin, margin, rect.width - 2 * margin, rect.height - 3 * margin - 16 ))
+        let imageView = UIImageView(frame: CGRect(x: margin, y: margin, width: rect.width - 2 * margin, height: rect.height - 3 * margin - 16 ))
         imageView.image = image
-        imageView.contentMode = .ScaleAspectFit
-        imageView.backgroundColor = UIColor.whiteColor()
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = UIColor.white
         self.addSubview(imageView)
         
-        let label = UILabel(frame: CGRectMake(margin, imageView.frame.maxY + margin, rect.width - 2 * margin, labelHeight))
+        let label = UILabel(frame: CGRect(x: margin, y: imageView.frame.maxY + margin, width: rect.width - 2 * margin, height: labelHeight))
         label.text = text
         label.font = UIFont(name: textFontName, size: 13.0)
         label.textColor = UIColor.textColor()
-        label.textAlignment = .Center
+        label.textAlignment = .center
         self.addSubview(label)
         
     }
